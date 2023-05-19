@@ -1,0 +1,13 @@
+package com.ssafy.ssafit.model.dto;
+
+import java.sql.Date;
+
+public class Workout {
+	private String nickName;
+	private String workoutName;
+	private int workoutCnt;
+	private int workoutSetCnt;
+	private Date createdDate;
+	private int workoutId;
+	
+}

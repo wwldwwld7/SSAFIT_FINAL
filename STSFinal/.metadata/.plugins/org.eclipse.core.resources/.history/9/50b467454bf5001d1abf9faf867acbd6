@@ -1,0 +1,18 @@
+package com.ssafy.ssafit.model.dto;
+
+import java.sql.Timestamp;
+
+public class Comment {
+	private String youtubeId;
+	private String writer;
+	private String content;
+	private Timestamp registDate;
+	private int likeCnt;
+	private int commentId;
+	
+	public Comment() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}

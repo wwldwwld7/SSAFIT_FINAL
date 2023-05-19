@@ -1,0 +1,7 @@
+package com.ssafy.ssafit.model.dto;
+
+public class LikeVideo {
+	private String nickName;
+	private String youtubeId;
+	private int likeVideoId;
+}
