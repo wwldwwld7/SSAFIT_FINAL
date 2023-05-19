@@ -1,7 +1,20 @@
-<template><div></div></template>
+<template>
+  <div>
+    <router-view />
+    <!-- <router-link to="{name: 'login'}" /> -->
+    <!-- <login-form /> -->
+  </div>
+</template>
 
 <script>
-export default {};
+// import LoginForm from "@/components/user/LoginForm.vue";
+
+export default {
+  name: "UserView",
+  components: {
+    // LoginForm,
+  },
+};
 </script>
 
 <style></style>
