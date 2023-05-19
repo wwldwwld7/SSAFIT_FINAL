@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -48,29 +50,37 @@ public class VideoController {
 		}
 	}
 	
-	//keyword가 포함된 영화들을 검색 ( 검색창에 keyword로 검색할 때 필요)
-	@GetMapping("/{keyword}")
-	public ResponseEntity<List<Video>> searchByTitle(@PathVariable String keyword) {
-		List<Video> list = videoService.searchByTitle(keyword);
-		
-		if(list.size() == 0 || list == null) {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}else {
-			return new ResponseEntity<>(list, HttpStatus.OK);
-		}
-	}
-	
+//	//keyword가 포함된 영화들을 검색 ( 검색창에 keyword로 검색할 때 필요)
 //	@GetMapping("/{keyword}")
 //	public ResponseEntity<List<Video>> searchByTitle(@PathVariable String keyword) {
-//		Video video = videoService.searchByTitle(keyword);
+//		List<Video> list = videoService.searchByTitle(keyword);
 //		
-//		if(null이면 추가하고) {
+//		if(list.size() == 0 || list == null) {
 //			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//		}else {아니면 지나가(selectOne으로 이어져)
-					//연결이면 이어져~하고 걍따로할거면 그냥이부분없어도됨 (아래부분 )
+//		}else {
 //			return new ResponseEntity<>(list, HttpStatus.OK);
 //		}
 //	}
-
+	
+	//youtubeId로 DB에 이 영상관련 정보가 이미 있는지 확인한다.
+	@PostMapping("/check")
+	public ResponseEntity<?> searchByYoutubeId(String youtubeId){
+		Video video = videoService.searchByYoutubeId(youtubeId);
+		
+		if(video == null) {
+			return new ResponseEntity<>(1, HttpStatus.NO_CONTENT);
+		}else {
+			return new ResponseEntity<>(video, HttpStatus.FOUND);
+		}
+	}
+	
+	//영상 관련 정보가 없다면 새로 영상 정보를 DB에 저장한다.
+	@PostMapping
+	public ResponseEntity<String> registVideo(@RequestBody Video video) {
+		if(videoService.registVideo(video) == 1) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
 	
 }
