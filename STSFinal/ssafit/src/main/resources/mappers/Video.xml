@@ -26,5 +26,16 @@
 	</select>
 	-->
 	
+	<select id="selectByYoutubeId" parameterType="String" resultType="Video">
+		SELECT *
+		FROM videos
+		WHERE youtubeId = #{youtubeId};
+	</select>
+	
+	<insert id="insertVideo" parameterType="Video">
+		INSERT INTO videos
+		VALUES (#{youtubeId}, #{channelName}, #{title}, #{viewCnt})
+	</insert>
+	
 </mapper>
 

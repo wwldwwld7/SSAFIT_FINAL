@@ -36,4 +36,16 @@ public class VideoServiceImpl implements VideoService {
 		return videoDao.selectByTitle(keyword);
 	}
 
+	//youtubeId로 DB에 이 영상관련 정보가 이미 있는지 확인한다.
+	@Override
+	public Video searchByYoutubeId (String youtubeId) {
+		return videoDao.selectByYoutubeId(youtubeId);
+	}
+	
+	//영상 관련 정보가 없다면 새로 영상 정보를 DB에 저장한다.
+	@Override
+	public int registVideo(Video video) {
+		return videoDao.insertVideo(video);
+	}
+
 }
