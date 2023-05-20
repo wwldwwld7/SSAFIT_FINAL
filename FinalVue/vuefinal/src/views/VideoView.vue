@@ -1,18 +1,10 @@
 <template>
   <div>
-    <h2>영상보여주는 페이지</h2>
     <search-video @search-input="search"></search-video>
-    <search-video-result :videos="videos"></search-video-result>
-    <!-- <ul>
-      <li
-        v-for="video in videos"
-        :key="video.id.videoId"
-        :youtubeId="video.id.videoId"
-      >
-        <img @click="CaR" :src="video.snippet.thumbnails.default.url" />
-        {{ video.snippet.title }}
-      </li>
-    </ul> -->
+    <div>
+      <search-video-result :videos="videos"></search-video-result>
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -31,6 +23,7 @@ export default {
     return {
       //created든 수동적으로 넣든 json으로 기본 영상정보 넣어주기.
       videos: [],
+      video: {},
     };
   },
   methods: {
@@ -45,7 +38,7 @@ export default {
           part: "snippet",
           q: value,
           type: "video",
-          maxResults: 10,
+          maxResults: 5,
         },
       })
         .then((res) => {

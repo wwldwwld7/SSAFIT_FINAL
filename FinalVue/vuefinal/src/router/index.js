@@ -18,6 +18,28 @@ const routes = [
     path: "/video",
     name: "video",
     component: VideoView,
+    children: [
+      {
+        path: "detail",
+        name: "detail",
+        component: () => import("@/components/video/DetailVideo.vue"),
+      },
+      {
+        path: "comment",
+        name: "comment",
+        component: () => import("@/components/video/DetailVideoComment.vue"),
+      },
+      {
+        path: "",
+        name: "search",
+        component: () => import("@/components/video/SearchVideo.vue"),
+      },
+      {
+        path: "searchResult",
+        name: "searchResult",
+        component: () => import("@/components/video/SearchVideoResult.vue"),
+      },
+    ],
   },
   {
     path: "/user",
