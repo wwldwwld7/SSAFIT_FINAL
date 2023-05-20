@@ -1,6 +1,7 @@
 <!-- 식단관리 -->
 <template>
   <div>
+    식단관리
     <detail-calender></detail-calender>
   </div>
 </template>
@@ -9,6 +10,7 @@
 import DetailCalender from "./Calendar/DetailCalender.vue";
 
 export default {
+  name: "CalendarView",
   components: { DetailCalender },
 };
 </script>
