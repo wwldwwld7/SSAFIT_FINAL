@@ -7,4 +7,6 @@ public interface UserService {
 	int createUser(User user);
 	
 	User loginUser(String userId);
+	
+	User nickNameCheck(String nickName);
 }

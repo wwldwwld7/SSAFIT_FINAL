@@ -10,13 +10,31 @@ export default new Vuex.Store({
   state: {
     user: {},
     loginUser: null,
+    availableId: "",
+    availablenickName: "",
   },
 
-  getters: {},
+  getters: {
+    loginUser(state) {
+      return state.loginUser;
+    },
+    availableId(state) {
+      return state.availableId;
+    },
+    availablenickName(state) {
+      return state.availablenickName;
+    },
+  },
   mutations: {
     LOGIN(state, payload) {
-      console.log(payload);
+      // console.log(payload);
       state.loginUser = payload;
+    },
+    DUPLICATEIDCHECK(state, payload) {
+      state.availableId = payload;
+    },
+    DUPLICATENICKNAMECHECK(state, payload) {
+      state.availablenickName = payload;
     },
   },
   actions: {
@@ -49,6 +67,26 @@ export default new Vuex.Store({
         })
         .catch(() => {
           alert("로그인에 실패하였습니다.");
+        });
+    },
+    duplicateIdCheck({ commit }, userId) {
+      http
+        .get(`/user/id_check/${userId}`)
+        .then(({ data }) => {
+          commit("DUPLICATEIDCHECK", data);
+        })
+        .catch(() => {
+          commit("DUPLICATEIDCHECK", "");
+        });
+    },
+    duplicateNickNameCheck({ commit }, nickName) {
+      http
+        .get(`/user//nickname_check/${nickName}`)
+        .then(({ data }) => {
+          commit("DUPLICATENICKNAMECHECK", data);
+        })
+        .catch(() => {
+          commit("DUPLICATENICKNAMECHECK", "");
         });
     },
   },

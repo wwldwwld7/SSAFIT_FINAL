@@ -22,8 +22,16 @@ public class UserServieImpl implements UserService {
 	}
 
 	@Override
-	public User loginUser(String userId) { //로그인
+	public User loginUser(String userId) { //로그인, 회원가입시 아이디 중복 확인
 		User tmp = userDao.selectOne(userId);
+		if(tmp==null)
+			return null;
+		return tmp;
+	}
+
+	@Override
+	public User nickNameCheck(String nickName) { //닉네임 중복확인
+		User tmp = userDao.selectByNickName(nickName);
 		if(tmp==null)
 			return null;
 		return tmp;

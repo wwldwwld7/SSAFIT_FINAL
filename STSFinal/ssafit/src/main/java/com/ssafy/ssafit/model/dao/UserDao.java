@@ -8,4 +8,6 @@ public interface UserDao {
 	
 	User selectOne(String userId); //로그인
 	
+	User selectByNickName(String nickName); //닉네임 중복체크
+	
 }
