@@ -12,4 +12,8 @@
 	SELECT * FROM users WHERE userId = #{userId}
 	</select>
 	
+	<select id="selectByNickName" parameterType="String" resultType="User">
+	SELECT * FROM users WHERE nickName = #{nickName}
+	</select>
+	
 </mapper>

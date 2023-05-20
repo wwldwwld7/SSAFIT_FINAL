@@ -11,9 +11,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.ssafit.model.dto.User;
@@ -87,4 +89,21 @@ public class UserController {
 		return new ResponseEntity<String>("NO_CONTENT", HttpStatus.OK);
 	}
 	
+	@GetMapping("/id_check/{userId}")
+	public ResponseEntity<?> idCheck(@PathVariable String userId){
+		User tmp = userService.loginUser(userId);
+		if(tmp==null) {
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		}
+		return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+	}
+	
+	@GetMapping("/nickname_check/{nickName}")
+	public ResponseEntity<?> nicknameCheck(@PathVariable String nickName){
+		User tmp = userService.nickNameCheck(nickName);
+		if(tmp==null) {
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		}
+		return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+	}
 }
