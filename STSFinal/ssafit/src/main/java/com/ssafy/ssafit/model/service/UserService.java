@@ -6,5 +6,5 @@ public interface UserService {
 	
 	int createUser(User user);
 	
-	User loginUser(User user);
+	User loginUser(String userId);
 }

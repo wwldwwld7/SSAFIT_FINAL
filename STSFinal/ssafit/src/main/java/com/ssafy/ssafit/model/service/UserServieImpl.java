@@ -22,12 +22,11 @@ public class UserServieImpl implements UserService {
 	}
 
 	@Override
-	public User loginUser(User user) { //로그인
-		User tmp = userDao.selectOne(user.getUserId());
-		if(tmp != null && tmp.getPassword().equals(user.getPassword())) {
-			return tmp;
-		}
-		return null;
+	public User loginUser(String userId) { //로그인
+		User tmp = userDao.selectOne(userId);
+		if(tmp==null)
+			return null;
+		return tmp;
 	}
 
 }

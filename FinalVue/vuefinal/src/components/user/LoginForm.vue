@@ -9,7 +9,7 @@
 </template>
 
 <script>
-// import http from "@/util/http-common";
+// import {mapGetters} from "vuex";
 
 export default {
   name: "LoginForm",
@@ -25,10 +25,12 @@ export default {
         userId: this.userId,
         password: this.password,
       };
-      await this.$store.dispatch("userLogIn", user);
-      this.$router.push({ name: "video" });
+      await this.$store.dispatch("userLogIn", user).then(() => {
+        // this.$router.push({ name: "video" });
+      });
     },
   },
+  computed: {},
 };
 </script>
 
