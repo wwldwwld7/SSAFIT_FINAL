@@ -21,13 +21,13 @@ export default {
     };
   },
   methods: {
-    async goLogIn() {
+    goLogIn() {
       const user = {
         userId: this.userId,
         password: this.password,
       };
-      await this.$store.dispatch("userLogIn", user).then(() => {
-        // this.$router.push({ name: "video" });
+      this.$store.dispatch("userLogIn", user).then(() => {
+        this.$router.push({ name: "video" });
       });
     },
   },

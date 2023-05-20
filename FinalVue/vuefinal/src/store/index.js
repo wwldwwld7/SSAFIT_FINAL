@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import http from "@/util/http-common.js";
-// import Router from "next/router";
+import createPersistedState from "vuex-persistedstate";
 // import axios from "axios";
 
 Vue.use(Vuex);
@@ -9,9 +9,9 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     user: {},
-    loginUser: null,
-    availableId: "",
-    availablenickName: "",
+    loginUser: null, //로그인된 사람의 닉네임
+    availableId: "", //아이디 중복체크
+    availablenickName: "", //닉네임 중복체크
   },
 
   getters: {
@@ -27,7 +27,7 @@ export default new Vuex.Store({
   },
   mutations: {
     LOGIN(state, payload) {
-      // console.log(payload);
+      // state.loginUser = payload.nickName;
       state.loginUser = payload;
     },
     DUPLICATEIDCHECK(state, payload) {
@@ -36,34 +36,18 @@ export default new Vuex.Store({
     DUPLICATENICKNAMECHECK(state, payload) {
       state.availablenickName = payload;
     },
+    DOLOGOUT(state) {
+      state.loginUser = null;
+    },
   },
   actions: {
     userLogIn({ commit }, user) {
-      // axios({
-      //   url: `http://localhost:9999/user/login`,
-      //   method: "POST",
-      //   params: user,
-      // })
-      //   .then((res) => {
-      //     console.log(res);
-      //     commit("LOGIN", res);
-      //     // this.$router.push({ name: "video" });
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //     alert("로그인에 실패하였습니다.");
-      //   });
-
       http
         .post("/user/login", user)
-        // .then(({ data }) => {
-        //   console.log(data);
-        //   commit("LOGIN", data);
-        // })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           commit("LOGIN", res.data);
-          window.location.href = "http://localhost:8080/video";
+          // window.location.href = "http://localhost:8080/video";
         })
         .catch(() => {
           alert("로그인에 실패하였습니다.");
@@ -89,6 +73,19 @@ export default new Vuex.Store({
           commit("DUPLICATENICKNAMECHECK", "");
         });
     },
+    doSignUp(context, user) {
+      http.post("/user/signup", user).then(() => {
+        window.location.href = "http://localhost:8080/user";
+      });
+    },
+    doLogOut(context) {
+      context.commit("DOLOGOUT");
+    },
   },
   modules: {},
+  plugins: [
+    createPersistedState({
+      paths: ["loginUser"], //여기에 쓴 state만 새로고침해도 저장되어있음
+    }),
+  ],
 });
