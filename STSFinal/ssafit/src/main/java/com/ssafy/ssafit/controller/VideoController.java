@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import com.ssafy.ssafit.model.service.VideoService;
 
 @RestController
 @RequestMapping("/video")
+@CrossOrigin("*")
 public class VideoController {
 
 	VideoService videoService;
@@ -63,20 +65,24 @@ public class VideoController {
 //	}
 	
 	//youtubeId로 DB에 이 영상관련 정보가 이미 있는지 확인한다.
-	@PostMapping("/check")
-	public ResponseEntity<?> searchByYoutubeId(String youtubeId){
+	@PostMapping("/check/{youtubeId}")
+	public ResponseEntity<?> searchByYoutubeId(@PathVariable String youtubeId){
 		Video video = videoService.searchByYoutubeId(youtubeId);
-		
+		System.out.println(video);
+		System.out.println(youtubeId);
 		if(video == null) {
-			return new ResponseEntity<>(1, HttpStatus.NO_CONTENT);
+			System.out.println("없어");
+			return new ResponseEntity<String>("없어", HttpStatus.NO_CONTENT);
 		}else {
+			System.out.println("있어");
 			return new ResponseEntity<>(video, HttpStatus.FOUND);
 		}
 	}
-	
+	 
 	//영상 관련 정보가 없다면 새로 영상 정보를 DB에 저장한다.
 	@PostMapping
 	public ResponseEntity<String> registVideo(@RequestBody Video video) {
+//		System.out.println(video);
 		if(videoService.registVideo(video) == 1) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
