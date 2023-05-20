@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import http from "@/util/http-common.js";
+// import Router from "next/router";
 // import axios from "axios";
 
 Vue.use(Vuex);
@@ -37,11 +38,14 @@ export default new Vuex.Store({
 
       http
         .post("/user/login", user)
+        // .then(({ data }) => {
+        //   console.log(data);
+        //   commit("LOGIN", data);
+        // })
         .then((res) => {
-          console.log(res.config);
-          console.log(res.config.data);
-          commit("LOGIN", res.config.data);
-          console.log(this.state.loginUser);
+          console.log(res);
+          commit("LOGIN", res.data);
+          window.location.href = "http://localhost:8080/video";
         })
         .catch(() => {
           alert("로그인에 실패하였습니다.");

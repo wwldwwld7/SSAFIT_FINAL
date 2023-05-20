@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +36,7 @@ public class UserController {
 		this.jwtUtil = jwtUtil;
 	}
 	
-	@PostMapping("/signUp")
+	@PostMapping("/signup")
 	public ResponseEntity<?> singUp(User user){
 		int result = userService.createUser(user);
 		if(result == 0)
@@ -44,31 +45,32 @@ public class UserController {
 	}
 	
 	@PostMapping("/login")
-	public ResponseEntity<Map<String, Object>> logIn(User user, HttpSession session){
-		
+	public ResponseEntity<Map<String, Object>> logIn(@RequestBody User user, HttpSession session){
+		System.out.println(user.toString()+"컨트롤러");
 		Map<String, Object> result = new HashMap<String, Object>();
 		//Vue에서 axios를 통해 User가 들어올거임
 		//user를 이용해서 Service->Dao->DB를 통해 실제 유저인지 확인해야한다.
-		User tmp = userService.loginUser(user);
-//		System.out.println(tmp.toString());
+		User tmp = userService.loginUser(user.getUserId());
 		HttpStatus status = null;
 		try {
-			if(tmp != null) {
-				result.put("access-token", jwtUtil.createToken("id", user.getUserId()));
-				result.put("message", "SUCCESS");
-				status = HttpStatus.ACCEPTED;
-				session.setAttribute("logInUser", tmp);
+			if(tmp == null) {
+				System.out.println("실패");
+				result.put("message", "FAIL");
+				status = HttpStatus.BAD_REQUEST;
 			}
 			else {
-				result.put("message", "FAIL");
-				status = HttpStatus.NO_CONTENT;
+				result.put("access-token", jwtUtil.createToken("id",tmp.getUserId()));
+				result.put("message", "SUCCESS");
+				result.put("nickName", tmp.getNickName());
+				System.out.println("성공");
+				status = HttpStatus.ACCEPTED;
+				session.setAttribute("logInUser", tmp);
 			}
 		} catch (UnsupportedEncodingException e) {
 			result.put("message", "FAIL");
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
 			e.printStackTrace();
 		}
-		
 		return new ResponseEntity<Map<String,Object>>(result, status);
 	}
 	

@@ -2,6 +2,7 @@
   <div>
     헤더야~
     <router-link :to="{ name: 'video' }"> 비디오 </router-link>
+    <router-link :to="{ name: 'user' }"> 로그인 </router-link>
   </div>
 </template>
 
