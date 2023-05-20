@@ -2,6 +2,7 @@
 <template>
   <div>
     <input type="text" v-model="userId" placeholder="아이디" /><br />
+    <span></span>
     <input type="password" v-model="password" placeholder="비밀번호" /><br />
     <button @click="goLogIn">로그인</button><br />
     <router-link :to="{ name: 'signup' }">회원가입</router-link>
