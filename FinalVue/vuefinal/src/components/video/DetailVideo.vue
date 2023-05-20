@@ -2,8 +2,9 @@
 <template>
   <div>
     <detail-video-comment></detail-video-comment>
-    <!-- {{ video.id.videoId }}<br /> -->
-    {{ youtubeId }}
+    {{ youtubeId }}<br />
+    {{ channelName }}<br />
+    {{ title }}
   </div>
 </template>
 
@@ -16,11 +17,12 @@ export default {
   components: {
     DetailVideoComment,
   },
-  props: {
-    video: Object,
-  },
+  // props: {
+  //   video: Object,
+  // },
   data() {
     return {
+      video: this.$route.params.video,
       youtubeId: "",
       channelName: "",
       title: "",
@@ -30,14 +32,14 @@ export default {
     this.youtubeId = this.video.id.videoId;
     this.channelName = this.video.snippet.channelTitle;
     this.title = this.video.snippet.title;
-    // console.log(this.video);
-    // console.log(this.video.youtubeId);
+    // console.log(.video);
+    // console.log(.video.youtubeId);
     // console.log(this.video.channelName);
     // console.log(this.video.title);
     const video = {
       channelName: this.channelName,
       title: this.title,
-      viewCnt: 2,
+      // viewCnt: 2,
       youtubeId: this.youtubeId,
     };
     // http.post("/video", {
@@ -48,7 +50,7 @@ export default {
     // });
     console.log(this.youtubeId);
     const a = await http.post(`/video/check/${this.youtubeId}`);
-    // console.log(a);
+    console.log(a.status);
     // console(http.post("/video/check", `${this.youtubeId}`).data);
     if (a.status === 204) {
       http.post("/video", video);

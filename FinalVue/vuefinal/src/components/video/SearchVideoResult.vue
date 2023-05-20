@@ -4,30 +4,28 @@
       <li v-for="(video, index) in videos" :key="index">
         <img :src="video.snippet.thumbnails.default.url" />
         {{ video.snippet.title }}
-        <detail-video :video="video">상세보기</detail-video>
+        <!-- <detail-video :video="video"></detail-video> -->
+        <router-link :to="{ name: 'detail', params: { video: video } }">
+          상세보기</router-link
+        >
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import DetailVideo from "@/components/video/DetailVideo.vue";
 export default {
   name: "SearchVideoResult",
   props: {
     videos: Array,
   },
-  components: {
-    DetailVideo,
-  },
+  components: {},
   data() {
     return {
       video: {},
     };
   },
-  methods: {
-    CaR() {},
-  },
+  methods: {},
 };
 </script>
 

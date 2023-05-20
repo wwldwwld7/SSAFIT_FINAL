@@ -63,7 +63,7 @@ public class VideoController {
 //			return new ResponseEntity<>(list, HttpStatus.OK);
 //		}
 //	}
-	
+	 
 	//youtubeId로 DB에 이 영상관련 정보가 이미 있는지 확인한다.
 	@PostMapping("/check/{youtubeId}")
 	public ResponseEntity<?> searchByYoutubeId(@PathVariable String youtubeId){
