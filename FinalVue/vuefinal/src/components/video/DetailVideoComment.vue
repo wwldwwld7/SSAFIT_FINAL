@@ -4,19 +4,22 @@
     <input type="text" v-model="content" />
     <button @click="regist(content)">등록</button>
     <hr />
-    <detail-video-comment-list></detail-video-comment-list>
+    <detail-video-comment-list :comments="comments"></detail-video-comment-list>
   </div>
 </template>
 
 <script>
 import DetailVideoCommentList from "./DetailVideoCommentList.vue";
-// import http from "@/util/http-common";
+import { mapState } from "vuex";
+import http from "@/util/http-common";
+
 export default {
   components: { DetailVideoCommentList },
   name: "DetailVideoComment",
   data() {
     return {
       content: "",
+      comments: [],
     };
   },
   props: {
@@ -24,10 +27,26 @@ export default {
   },
   methods: {
     regist(value) {
-      console.log(this.youtubeId);
-      console.log(value);
-      // http.post("/")
+      const comment = {
+        youtubeId: this.youtubeId,
+        content: value,
+        nickName: this.loginUser.nickName,
+      };
+      http.post("/comment", comment);
     },
+  },
+  computed: {
+    ...mapState(["loginUser"]),
+  },
+  async created() {
+    await http.get(`/comment/video/${this.youtubeId}`).then((res) => {
+      console.log(this.youtubeId);
+      console.log(123);
+      console.log(res);
+      return res;
+    });
+    console.log(this.comments);
+    console.log(1);
   },
 };
 </script>
