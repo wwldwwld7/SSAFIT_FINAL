@@ -28,9 +28,6 @@ export default {
   components: {
     DetailVideoComment,
   },
-  // props: {
-  //   video: Object,
-  // },
   data() {
     return {
       video: this.$route.params.video,
@@ -54,8 +51,6 @@ export default {
     };
     console.log(this.youtubeId);
     const a = await http.post(`/video/check/${this.youtubeId}`);
-    console.log(a);
-    // console(http.post("/video/check", `${this.youtubeId}`).data);
     if (a.status === 204) {
       http.post("/video", video);
     }
