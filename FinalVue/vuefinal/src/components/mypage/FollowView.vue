@@ -1,10 +1,12 @@
 <!-- 팔로워 / 팔로잉 화면 -->
 <template>
-  <div></div>
+  <div>여기 팔로잉팔로워</div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "FollowView",
+};
 </script>
 
 <style></style>
