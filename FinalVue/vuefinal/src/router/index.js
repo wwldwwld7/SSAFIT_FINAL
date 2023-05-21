@@ -6,7 +6,12 @@ import VideoView from "../views/VideoView.vue";
 import LoginForm from "@/components/user/LoginForm.vue";
 import MyPage from "../views/MyPage.vue";
 import SignupForm from "@/components/user/SignupForm.vue";
+import MyPageMain from "@/components/mypage/MyPageMain.vue";
 import CalendarView from "@/components/mypage/CalendarView.vue";
+import CommentList from "@/components/mypage/CommentList.vue";
+import LikeVideos from "@/components/mypage/LikeVideos.vue";
+import FollowView from "@/components/mypage/FollowView.vue";
+import MyInfo from "@/components/mypage/MyInfo.vue";
 
 Vue.use(VueRouter);
 
@@ -66,9 +71,34 @@ const routes = [
     component: MyPage,
     children: [
       {
-        path: "calender",
-        name: "calender-view",
+        path: "",
+        name: "mypagemain",
+        component: MyPageMain,
+      },
+      {
+        path: "calendar",
+        name: "calendar-view",
         component: CalendarView,
+      },
+      {
+        path: "comment",
+        name: "comment-list",
+        component: CommentList,
+      },
+      {
+        path: "likevideos",
+        name: "like-videos",
+        component: LikeVideos,
+      },
+      {
+        path: "follow",
+        name: "follow-view",
+        component: FollowView,
+      },
+      {
+        path: "myinfo",
+        name: "my-info",
+        component: MyInfo,
       },
     ],
   },
