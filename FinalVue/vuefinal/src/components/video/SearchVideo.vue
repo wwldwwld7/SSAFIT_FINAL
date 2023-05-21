@@ -2,24 +2,52 @@
 <template>
   <div>
     <input type="text" v-model="keyword" />
-    <button @click="search">검색</button>
-    <search-video-result></search-video-result>
+    <button @click="search(keyword)">검색</button>
+    <search-video-result :videos="videos"></search-video-result>
   </div>
 </template>
 
 <script>
 import SearchVideoResult from "./SearchVideoResult.vue";
+import axios from "axios";
+
 export default {
-  components: { SearchVideoResult },
+  components: {
+    SearchVideoResult,
+  },
   name: "SearchVideo",
   data() {
     return {
       keyword: "",
+      videos: [],
     };
   },
   methods: {
-    search() {
-      this.$emit("search-input", this.keyword);
+    search(value) {
+      const URL = "https://www.googleapis.com/youtube/v3/search";
+      const API_KEY = process.env.VUE_APP_YOUTUBE_API_KEY;
+      axios({
+        url: URL,
+        method: "GET",
+        params: {
+          key: API_KEY,
+          part: "snippet",
+          q: value,
+          type: "video",
+          maxResults: 1,
+        },
+      })
+        .then((res) => {
+          console.log(1);
+          console.log(res);
+          return res.data.items;
+        })
+        .then((res) => {
+          this.videos = res;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };

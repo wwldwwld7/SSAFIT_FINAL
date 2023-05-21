@@ -5,16 +5,18 @@ public class Video {
 	private String channelName;
 	private String title;
 	private int viewCnt;
+	private String thumbnails;
 	
 	public Video() {
 	}
 
-	public Video(String youtubeId, String channelName, String title, int viewCnt) {
+	public Video(String youtubeId, String channelName, String title, int viewCnt, String thumbnails) {
 		super();
 		this.youtubeId = youtubeId;
 		this.channelName = channelName;
 		this.title = title;
 		this.viewCnt = viewCnt;
+		this.thumbnails = thumbnails;
 	}
 
 	public String getYoutubeId() {
@@ -49,10 +51,18 @@ public class Video {
 		this.viewCnt = viewCnt;
 	}
 
+	public String getThumbnails() {
+		return thumbnails;
+	}
+
+	public void setThumbnails(String thumbnails) {
+		this.thumbnails = thumbnails;
+	}
+
 	@Override
 	public String toString() {
 		return "Video [youtubeId=" + youtubeId + ", channelName=" + channelName + ", title=" + title + ", viewCnt="
-				+ viewCnt + "]";
+				+ viewCnt + ", thumbnails=" + thumbnails + "]";
 	}
 	
 	

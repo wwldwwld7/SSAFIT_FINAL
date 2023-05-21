@@ -60,6 +60,7 @@ public class UserController {
 				status = HttpStatus.BAD_REQUEST;
 			}
 			else {
+				System.out.println(1);
 				result.put("access-token", jwtUtil.createToken("id",tmp.getUserId()));
 				result.put("message", "SUCCESS");
 				result.put("nickName", tmp.getNickName());

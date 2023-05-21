@@ -45,7 +45,7 @@ export default new Vuex.Store({
       http
         .post("/user/login", user)
         .then((res) => {
-          // console.log(res);
+          console.log(res);
           commit("LOGIN", res.data);
           // window.location.href = "http://localhost:8080/video";
         })

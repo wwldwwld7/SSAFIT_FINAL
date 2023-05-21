@@ -34,7 +34,7 @@
 	
 	<insert id="insertVideo" parameterType="Video">
 		INSERT INTO videos
-		VALUES (#{youtubeId}, #{channelName}, #{title}, #{viewCnt})
+		VALUES (#{thumbnails}, #{youtubeId}, #{channelName}, #{title}, #{viewCnt})
 	</insert>
 	
 </mapper>

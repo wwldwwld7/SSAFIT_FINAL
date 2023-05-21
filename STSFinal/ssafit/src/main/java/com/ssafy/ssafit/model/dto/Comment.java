@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class Comment {
 	private String youtubeId;
-	private String writer;
+	private String nickName;
 	private String content;
 	private Timestamp registDate;
 	private int likeCnt;
@@ -13,10 +13,10 @@ public class Comment {
 	public Comment() {
 	}
 
-	public Comment(String youtubeId, String writer, String content, Timestamp registDate, int likeCnt, int commentId) {
+	public Comment(String youtubeId, String nickName, String content, Timestamp registDate, int likeCnt, int commentId) {
 		super();
 		this.youtubeId = youtubeId;
-		this.writer = writer;
+		this.nickName = nickName;
 		this.content = content;
 		this.registDate = registDate;
 		this.likeCnt = likeCnt;
@@ -31,12 +31,12 @@ public class Comment {
 		this.youtubeId = youtubeId;
 	}
 
-	public String getWriter() {
-		return writer;
+	public String getNickName() {
+		return nickName;
 	}
 
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
 	public String getContent() {
@@ -73,9 +73,8 @@ public class Comment {
 
 	@Override
 	public String toString() {
-		return "Comment [youtubeId=" + youtubeId + ", writer=" + writer + ", content=" + content + ", registDate="
+		return "Comment [youtubeId=" + youtubeId + ", nickName=" + nickName + ", content=" + content + ", registDate="
 				+ registDate + ", likeCnt=" + likeCnt + ", commentId=" + commentId + "]";
 	}
-	
-	
+
 }
