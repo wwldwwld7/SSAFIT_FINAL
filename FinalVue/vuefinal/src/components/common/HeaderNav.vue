@@ -1,7 +1,7 @@
 <template>
   <div>
     헤더야~
-    <router-link :to="{ name: 'video' }"> 비디오 </router-link>
+    <router-link :to="{ name: 'search' }"> 비디오 </router-link>
     <router-link v-if="!loginUser" to="/user"> 로그인 </router-link>
     <router-link v-if="loginUser" to="/mypage">
       {{ loginUser.nickName }}님 환영합니다.

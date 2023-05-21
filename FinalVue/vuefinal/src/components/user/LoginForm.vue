@@ -26,6 +26,7 @@ export default {
         userId: this.userId,
         password: this.password,
       };
+      console.log(user);
       this.$store.dispatch("userLogIn", user).then(() => {
         this.$router.push({ name: "video" });
       });

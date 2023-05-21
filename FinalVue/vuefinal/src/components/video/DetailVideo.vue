@@ -1,10 +1,21 @@
 <!-- 영상 상세 정보 화면 -->
 <template>
-  <div>
-    <detail-video-comment></detail-video-comment>
-    {{ youtubeId }}<br />
-    {{ channelName }}<br />
-    {{ title }}
+  <div class="text-content">
+    <iframe
+      id="ytplayer"
+      type="text/html"
+      width="720"
+      height="405"
+      :src="`https://www.youtube.com/embed/${youtubeId}`"
+      frameborder="0"
+      allowfullscreen
+    ></iframe
+    ><br />
+    <button>찜</button>
+    <div>채녈명 : {{ channelName }}<br /></div>
+    <div>영상제목 : {{ title }}<br /></div>
+    <!-- <img :src="`${thumbnails}`" /> -->
+    <detail-video-comment :youtubeId="youtubeId"></detail-video-comment>
   </div>
 </template>
 
@@ -26,31 +37,24 @@ export default {
       youtubeId: "",
       channelName: "",
       title: "",
+      thumbnails: "",
+      videourl: "",
     };
   },
   async created() {
     this.youtubeId = this.video.id.videoId;
     this.channelName = this.video.snippet.channelTitle;
     this.title = this.video.snippet.title;
-    // console.log(.video);
-    // console.log(.video.youtubeId);
-    // console.log(this.video.channelName);
-    // console.log(this.video.title);
+    this.thumbnails = this.video.snippet.thumbnails.default.url;
     const video = {
       channelName: this.channelName,
       title: this.title,
-      // viewCnt: 2,
       youtubeId: this.youtubeId,
+      thumbnails: this.thumbnails,
     };
-    // http.post("/video", {
-    //   channelName: this.channelName,
-    //   title: this.title,
-    //   viewCnt: 2,
-    //   youtubeId: this.youtubeId,
-    // });
     console.log(this.youtubeId);
     const a = await http.post(`/video/check/${this.youtubeId}`);
-    console.log(a.status);
+    console.log(a);
     // console(http.post("/video/check", `${this.youtubeId}`).data);
     if (a.status === 204) {
       http.post("/video", video);
@@ -59,4 +63,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.text-content {
+  text-align: center;
+}
+</style>
