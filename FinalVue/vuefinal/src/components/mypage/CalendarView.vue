@@ -41,7 +41,6 @@
             color="primary"
             :events="events"
             :event-color="getEventColor"
-            :type="type"
             @click:event="showEvent"
             @click:more="viewDay"
             @click:date="viewDay"
@@ -120,6 +119,7 @@ export default {
   },
   methods: {
     practice() {
+      
       alert("확인");
     },
     viewDay({ date }) {
