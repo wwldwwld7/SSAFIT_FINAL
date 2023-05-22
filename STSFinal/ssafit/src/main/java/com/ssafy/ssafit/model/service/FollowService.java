@@ -11,7 +11,7 @@ public interface FollowService {
 	
 	int removeFollow(Follow follow);
 	
-	List<User> searchByFollower(String nickName);
+	List<User> searchByFollower(String follower);
 	
-	List<User> searchByFollowing(String nickName);
+	List<User> searchByFollowing(String following);
 }

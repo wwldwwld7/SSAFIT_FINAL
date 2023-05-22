@@ -32,21 +32,24 @@ export default {
         content: value,
         nickName: this.loginUser.nickName,
       };
-      http.post("/comment", comment);
+      http.post("/comment", comment).then(this.$router.go(0));
     },
   },
   computed: {
     ...mapState(["loginUser"]),
   },
   async created() {
-    await http.get(`/comment/video/${this.youtubeId}`).then((res) => {
-      console.log(this.youtubeId);
-      console.log(123);
-      console.log(res);
-      return res;
-    });
-    console.log(this.comments);
-    console.log(1);
+    await http
+      .get(`/comment/video/${this.youtubeId}`)
+      .then((res) => {
+        return res.data;
+      })
+      .then((res) => {
+        this.comments = res;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>

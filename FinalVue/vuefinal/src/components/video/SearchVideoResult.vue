@@ -2,30 +2,41 @@
   <div>
     <ul>
       <li v-for="(video, index) in videos" :key="index">
-        <img :src="video.snippet.thumbnails.default.url" />
+        <search-video-result-list :video="video"></search-video-result-list>
+
+        <!-- <img :src="video.snippet.thumbnails.default.url" />
         {{ video.snippet.title }}
-        <!-- <detail-video :video="video"></detail-video> -->
-        <router-link :to="{ name: 'detail', params: { video: video } }">
-          상세보기</router-link
+        <router-link
+          @click.native="storeVideo(video)"
+          :to="{ name: 'detail', params: { video: video } }"
         >
+          상세보기</router-link
+        > -->
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import SearchVideoResultList from "./SearchVideoResultList.vue";
+// import he from "../../../node_modules/he/he";
+
 export default {
   name: "SearchVideoResult",
   props: {
     videos: Array,
   },
-  components: {},
+  components: { SearchVideoResultList },
   data() {
     return {
-      video: {},
+      // video: {},
     };
   },
-  methods: {},
+  methods: {
+    storeVideo(value) {
+      this.$store.dispatch("storeVideo", value);
+    },
+  },
 };
 </script>
 

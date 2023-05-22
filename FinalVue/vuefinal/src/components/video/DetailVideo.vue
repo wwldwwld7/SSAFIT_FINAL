@@ -22,15 +22,20 @@
 <script>
 import DetailVideoComment from "./DetailVideoComment.vue";
 import http from "@/util/http-common";
+import { mapState } from "vuex";
+import he from "../../../node_modules/he/he";
 
 export default {
   name: "DetailVideo",
   components: {
     DetailVideoComment,
   },
+  computed: {
+    ...mapState(["video"]),
+  },
   data() {
     return {
-      video: this.$route.params.video,
+      // video: this.video,
       youtubeId: "",
       channelName: "",
       title: "",
@@ -41,7 +46,7 @@ export default {
   async created() {
     this.youtubeId = this.video.id.videoId;
     this.channelName = this.video.snippet.channelTitle;
-    this.title = this.video.snippet.title;
+    this.title = he.decode(this.video.snippet.title);
     this.thumbnails = this.video.snippet.thumbnails.default.url;
     const video = {
       channelName: this.channelName,
@@ -49,7 +54,6 @@ export default {
       youtubeId: this.youtubeId,
       thumbnails: this.thumbnails,
     };
-    console.log(this.youtubeId);
     const a = await http.post(`/video/check/${this.youtubeId}`);
     if (a.status === 204) {
       http.post("/video", video);

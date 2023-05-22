@@ -14,11 +14,17 @@
 	</delete>
 	
 	<select id="selectByFollower" parameterType="String" resultType="User">
-	SELECT * FROM follow WHERE follower = #{follower}
+		SELECT u.*
+		FROM users u
+		INNER JOIN follow f ON u.nickName = f.following
+		WHERE f.follower = #{follower};
 	</select>
 	
 	<select id="selectByFollowing" parameterType="String" resultType="User">
-	SELECT * FROM follow WHERE following = #{following}
+		SELECT u.*
+		FROM users u
+		INNER JOIN follow f ON u.nickName = f.follower
+		WHERE f.following = #{following};
 	</select>
 	
 </mapper>

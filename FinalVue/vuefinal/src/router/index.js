@@ -47,6 +47,17 @@ const routes = [
         name: "searchResult",
         component: () => import("@/components/video/SearchVideoResult.vue"),
       },
+      {
+        path: "resultList",
+        name: "resultList",
+        component: () => import("@/components/video/SearchVideoResultList.vue"),
+      },
+      {
+        path: "videoCommentList",
+        name: "videoCommentList",
+        component: () =>
+          import("@/components/video/DetailVideoCommentList.vue"),
+      },
     ],
   },
   {
