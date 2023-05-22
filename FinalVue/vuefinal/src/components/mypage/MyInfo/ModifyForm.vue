@@ -46,7 +46,7 @@ export default {
   },
   created() {
     this.name = this.loginUser.name;
-    this.userId = this.loginUser.id;
+    this.userId = this.loginUser.userId;
     this.nickName = this.loginUser.nickName;
     this.stateMsg = this.loginUser.stateMsg;
   },
@@ -66,6 +66,7 @@ export default {
       };
       if (this.passwordCheckFlag) {
         this.$store.dispatch("doModify", user).then(() => {
+          console.log(this.loginUser);
           this.$router.push({ name: "my-info" });
         });
       } else {

@@ -63,7 +63,7 @@ public class UserController {
 			else {
 				System.out.println(1);
 //				result.put("access-token", jwtUtil.createToken("id",tmp.getUserId()));
-				result.put("id", tmp.getUserId());
+				result.put("userId", tmp.getUserId());
 				result.put("message", "SUCCESS");
 				result.put("name", tmp.getName());
 				result.put("nickName", tmp.getNickName());
@@ -112,11 +112,13 @@ public class UserController {
 	
 	@PutMapping("/modify")
 	public ResponseEntity<?> modifyUser(@RequestBody User user){
-		User tmp = userService.modifyUser(user);
+		int result = userService.modifyUser(user);
 //		System.out.println(tmp.toString());
-		if(tmp==null) {
+		if(result == 0) {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		}
+		User tmp = userService.loginUser(user.getUserId());
+		System.out.println(tmp.toString());
 		return new ResponseEntity<User>(tmp, HttpStatus.OK);
 	}
 	

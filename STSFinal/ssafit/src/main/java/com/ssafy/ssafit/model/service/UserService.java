@@ -10,5 +10,5 @@ public interface UserService {
 	
 	User nickNameCheck(String nickName);
 	
-	User modifyUser(User user);
+	int modifyUser(User user);
 }

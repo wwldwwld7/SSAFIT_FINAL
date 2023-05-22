@@ -54,7 +54,7 @@ export default new Vuex.Store({
       http
         .post("/user/login", user)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           commit("LOGIN", res.data);
           // window.location.href = "http://localhost:8080/video";
         })
@@ -92,6 +92,7 @@ export default new Vuex.Store({
     },
     doModify(context, user) {
       http.put("/user/modify", user).then(({ data }) => {
+        console.log(data)
         context.commit("LOGIN", data);
         window.location.href = "http://localhost:8080/mypage/myinfo";
       });
