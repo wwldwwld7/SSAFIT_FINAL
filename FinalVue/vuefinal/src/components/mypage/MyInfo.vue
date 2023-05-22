@@ -5,7 +5,7 @@
       <span>이름</span><span class="info">{{ loginUser.name }}</span>
     </div>
     <div>
-      <span>아이디</span><span class="info">{{ loginUser.id }}</span>
+      <span>아이디</span><span class="info">{{ loginUser.userId }}</span>
     </div>
     <div>
       <span>닉네임</span><span class="info">{{ loginUser.nickName }}</span>

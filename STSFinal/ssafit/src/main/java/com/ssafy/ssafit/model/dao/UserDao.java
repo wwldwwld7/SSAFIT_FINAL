@@ -10,6 +10,6 @@ public interface UserDao {
 	
 	User selectByNickName(String nickName); //닉네임 중복체크
 	
-	User updateUser(User user); //회원정보 수정
+	int updateUser(User user); //회원정보 수정
 	
 }
