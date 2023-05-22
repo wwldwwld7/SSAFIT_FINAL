@@ -30,13 +30,13 @@ public class FollowServiceImpl implements FollowService {
 	}
 
 	@Override
-	public List<User> searchByFollower(String nickName) {
-		return followDao.selectByFollower(nickName);
+	public List<User> searchByFollower(String follower) {
+		return followDao.selectByFollower(follower);
 	}
 
 	@Override
-	public List<User> searchByFollowing(String nickName) {
-		return followDao.selectByFollowing(nickName);
+	public List<User> searchByFollowing(String following) {
+		return followDao.selectByFollowing(following);
 	}
 
 }

@@ -68,13 +68,9 @@ public class VideoController {
 	@PostMapping("/check/{youtubeId}")
 	public ResponseEntity<?> searchByYoutubeId(@PathVariable String youtubeId){
 		Video video = videoService.searchByYoutubeId(youtubeId);
-		System.out.println(video);
-		System.out.println(youtubeId);
 		if(video == null) {
-			System.out.println("없어");
 			return new ResponseEntity<String>("없어", HttpStatus.NO_CONTENT);
 		}else {
-			System.out.println("있어");
 			return new ResponseEntity<>(video, HttpStatus.FOUND);
 		}
 	}

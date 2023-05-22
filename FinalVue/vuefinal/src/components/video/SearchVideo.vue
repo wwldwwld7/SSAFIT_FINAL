@@ -34,12 +34,10 @@ export default {
           part: "snippet",
           q: value,
           type: "video",
-          maxResults: 1,
+          maxResults: 3,
         },
       })
         .then((res) => {
-          console.log(1);
-          console.log(res);
           return res.data.items;
         })
         .then((res) => {

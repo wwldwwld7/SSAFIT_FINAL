@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,10 +38,8 @@ public class CommentController {
 	}
 	
 	@GetMapping("/video/{youtubeId}")
-	public ResponseEntity<?> searchByVideo(String youtubeId){
+	public ResponseEntity<?> searchByVideo(@PathVariable String youtubeId){
 		List<Comment> list = commentService.searchCommentByVideo(youtubeId);
-		System.out.println(youtubeId);
-		System.out.println(1);
 		if(list.size() == 0 || list == null) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}else {
@@ -49,9 +48,8 @@ public class CommentController {
 	}
 	
 	@GetMapping("/user/{nickName}")
-	public ResponseEntity<?> searchByUser(String nickName){
+	public ResponseEntity<?> searchByUser(@PathVariable String nickName){
 		List<Comment> list = commentService.searchCommentByUser(nickName);
-		
 		if(list.size() == 0 || list == null) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}else {
@@ -60,7 +58,7 @@ public class CommentController {
 	}
 	
 	@DeleteMapping("/{commentId}")
-	public ResponseEntity<?> removeComment(int commentId){
+	public ResponseEntity<?> removeComment(@PathVariable int commentId){
 		if(commentService.removeComment(commentId) == 1) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}else {

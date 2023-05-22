@@ -12,6 +12,7 @@ export default new Vuex.Store({
     loginUser: null, //로그인된 사람의 닉네임
     availableId: "", //아이디 중복체크
     availablenickName: "", //닉네임 중복체크
+    video: {},
   },
 
   getters: {
@@ -39,8 +40,16 @@ export default new Vuex.Store({
     DOLOGOUT(state) {
       state.loginUser = null;
     },
+    STOREVIDEO(state, video) {
+      console.log(video);
+      state.video = video;
+    },
   },
   actions: {
+    storeVideo(context, video) {
+      console.log(video);
+      context.commit("STOREVIDEO", video);
+    },
     userLogIn({ commit }, user) {
       http
         .post("/user/login", user)
@@ -85,7 +94,7 @@ export default new Vuex.Store({
   modules: {},
   plugins: [
     createPersistedState({
-      paths: ["loginUser"], //여기에 쓴 state만 새로고침해도 저장되어있음
+      paths: ["loginUser", "video"], //여기에 쓴 state만 새로고침해도 저장되어있음
     }),
   ],
 });

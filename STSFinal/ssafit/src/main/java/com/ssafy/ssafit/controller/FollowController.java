@@ -46,7 +46,7 @@ public class FollowController {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	
-	@GetMapping("/{follower}")
+	@GetMapping("/to/{follower}")
 	public ResponseEntity<?> searchByFollower(@PathVariable String follower){
 		List<User> followings = followService.searchByFollower(follower);
 		if(followings==null) {
@@ -55,9 +55,10 @@ public class FollowController {
 		return new ResponseEntity<List<User>>(followings, HttpStatus.OK);
 	}
 	
-	@GetMapping("/{following}")
+	@GetMapping("/from/{following}")
 	public ResponseEntity<?> searchByFollowing(@PathVariable String following){
 		List<User> followers = followService.searchByFollowing(following);
+		System.out.println(followers);
 		if(followers==null) {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		}
