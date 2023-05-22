@@ -1,5 +1,8 @@
 <template>
-  <div>{{ nickName }}</div>
+  <div>
+    {{ nickName }}
+    {{ stateMsg }}
+  </div>
 </template>
 
 <script>
