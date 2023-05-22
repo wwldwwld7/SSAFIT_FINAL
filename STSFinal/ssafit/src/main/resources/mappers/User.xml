@@ -16,4 +16,9 @@
 	SELECT * FROM users WHERE nickName = #{nickName}
 	</select>
 	
+	<update id="updateUser" parameterType="User">
+	UPDATE users SET stateMsg = #{stateMsg}, password = #{password}
+	WHERE userId = #{userId}
+	</update>
+	
 </mapper>

@@ -12,6 +12,7 @@ import CommentList from "@/components/mypage/CommentList.vue";
 import LikeVideos from "@/components/mypage/LikeVideos.vue";
 import FollowView from "@/components/mypage/FollowView.vue";
 import MyInfo from "@/components/mypage/MyInfo.vue";
+import ModifyForm from "@/components/mypage/MyInfo/ModifyForm.vue";
 
 Vue.use(VueRouter);
 
@@ -110,6 +111,11 @@ const routes = [
         path: "myinfo",
         name: "my-info",
         component: MyInfo,
+      },
+      {
+        path: "modifyform",
+        name: "modify-form",
+        component: ModifyForm,
       },
     ],
   },

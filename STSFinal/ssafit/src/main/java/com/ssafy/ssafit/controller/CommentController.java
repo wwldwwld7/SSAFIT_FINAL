@@ -40,6 +40,7 @@ public class CommentController {
 	@GetMapping("/video/{youtubeId}")
 	public ResponseEntity<?> searchByVideo(@PathVariable String youtubeId){
 		List<Comment> list = commentService.searchCommentByVideo(youtubeId);
+
 		if(list.size() == 0 || list == null) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}else {
