@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -61,13 +62,16 @@ public class UserController {
 			}
 			else {
 				System.out.println(1);
-				result.put("access-token", jwtUtil.createToken("id",tmp.getUserId()));
+//				result.put("access-token", jwtUtil.createToken("id",tmp.getUserId()));
+				result.put("id", tmp.getUserId());
 				result.put("message", "SUCCESS");
+				result.put("name", tmp.getName());
 				result.put("nickName", tmp.getNickName());
+				result.put("stateMsg", tmp.getStateMsg());
 				status = HttpStatus.ACCEPTED;
-				session.setAttribute("logInUser", tmp);
+//				session.setAttribute("logInUser", tmp);
 			}
-		} catch (UnsupportedEncodingException e) {
+		} catch (Exception e) {
 			result.put("message", "FAIL");
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
 			e.printStackTrace();
@@ -75,18 +79,18 @@ public class UserController {
 		return new ResponseEntity<Map<String,Object>>(result, status);
 	}
 	
-	@GetMapping("/logout")
-	public ResponseEntity<?> logOut(HttpSession session){
-		if(session.getAttribute("logInUser") != null) {
-			System.out.println(session.getAttribute("logInUser"));
-			session.removeAttribute("logInUser");
-			System.out.println(session.getAttribute("logInUser"));
-			session.invalidate();
-			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-		}
-		System.out.println(session.getAttribute("logInUser"));
-		return new ResponseEntity<String>("NO_CONTENT", HttpStatus.OK);
-	}
+//	@GetMapping("/logout")
+//	public ResponseEntity<?> logOut(HttpSession session){
+//		if(session.getAttribute("logInUser") != null) {
+//			System.out.println(session.getAttribute("logInUser"));
+//			session.removeAttribute("logInUser");
+//			System.out.println(session.getAttribute("logInUser"));
+//			session.invalidate();
+//			return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+//		}
+//		System.out.println(session.getAttribute("logInUser"));
+//		return new ResponseEntity<String>("NO_CONTENT", HttpStatus.OK);
+//	}
 	
 	@GetMapping("/id_check/{userId}")
 	public ResponseEntity<?> idCheck(@PathVariable String userId){
@@ -105,4 +109,24 @@ public class UserController {
 		}
 		return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 	}
+	
+	@PutMapping("/modify")
+	public ResponseEntity<?> modifyUser(@RequestBody User user){
+		User tmp = userService.modifyUser(user);
+//		System.out.println(tmp.toString());
+		if(tmp==null) {
+			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<User>(tmp, HttpStatus.OK);
+	}
+	
+//	@GetMapping("/user_info/{nickName}")
+//	public ResponseEntity<?> user_info(@PathVariable String nickName){
+//		User tmp = userService.nickNameCheck(nickName);
+//		if(tmp==null) {
+//			return new ResponseEntity<User>(tmp, HttpStatus.OK);
+//		}
+//		return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+//	}
+	
 }
