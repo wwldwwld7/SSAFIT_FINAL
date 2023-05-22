@@ -27,6 +27,8 @@
     <span v-if="nickName" v-show="!availablenickName"
       >중복된 닉네임 입니다.</span
     ><br />
+    <input type="text" v-model="stateMsg" placeholder="닉네임 입력" />
+
     <button @click="doSignUp">회원가입</button><br />
   </div>
 </template>
@@ -42,6 +44,7 @@ export default {
       name: "",
       password: "",
       nickName: "",
+      stateMsg: "",
       passwordCheck: "",
       // idCheck: false,
       // passwordCheck: false,
@@ -70,6 +73,7 @@ export default {
         name: this.name,
         password: this.password,
         nickName: this.nickName,
+        stateMsg: this.stateMsg,
       };
       if (
         this.availableId &&

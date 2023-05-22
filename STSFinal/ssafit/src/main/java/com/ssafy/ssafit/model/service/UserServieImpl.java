@@ -37,4 +37,9 @@ public class UserServieImpl implements UserService {
 		return tmp;
 	}
 
+	@Override
+	public User modifyUser(User user) {
+		return userDao.updateUser(user);
+	}
+
 }

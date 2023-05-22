@@ -81,6 +81,12 @@ export default new Vuex.Store({
     doLogOut(context) {
       context.commit("DOLOGOUT");
     },
+    doModify(context, user) {
+      http.put("/user/modify", user).then(({ data }) => {
+        context.commit("LOGIN", data);
+        window.location.href = "http://localhost:8080/mypage/myinfo";
+      });
+    },
   },
   modules: {},
   plugins: [

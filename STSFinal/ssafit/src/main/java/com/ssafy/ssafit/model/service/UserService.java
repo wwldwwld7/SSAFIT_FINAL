@@ -9,4 +9,6 @@ public interface UserService {
 	User loginUser(String userId);
 	
 	User nickNameCheck(String nickName);
+	
+	User modifyUser(User user);
 }
