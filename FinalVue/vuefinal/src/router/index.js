@@ -3,16 +3,8 @@ import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import UserView from "../views/UserView.vue";
 import VideoView from "../views/VideoView.vue";
-import LoginForm from "@/components/user/LoginForm.vue";
 import MyPage from "../views/MyPage.vue";
-import SignupForm from "@/components/user/SignupForm.vue";
-import MyPageMain from "@/components/mypage/MyPageMain.vue";
-import CalendarView from "@/components/mypage/CalendarView.vue";
-import CommentList from "@/components/mypage/CommentList.vue";
-import LikeVideos from "@/components/mypage/LikeVideos.vue";
-import FollowView from "@/components/mypage/FollowView.vue";
-import MyInfo from "@/components/mypage/MyInfo.vue";
-import ModifyForm from "@/components/mypage/MyInfo/ModifyForm.vue";
+import GuestPage from "../views/GuestPage.vue";
 
 Vue.use(VueRouter);
 
@@ -68,12 +60,12 @@ const routes = [
       {
         path: "",
         name: "login",
-        component: LoginForm,
+        component: () => import("@/components/user/LoginForm.vue"),
       },
       {
         path: "signup",
         name: "signup",
-        component: SignupForm,
+        component: () => import("@/components/user/SignupForm.vue"),
       },
     ],
   },
@@ -85,39 +77,44 @@ const routes = [
       {
         path: "",
         name: "mypagemain",
-        component: MyPageMain,
+        component: () => import("@/components/mypage/MyPageMain.vue"),
       },
       {
         path: "calendar",
         name: "calendar-view",
-        component: CalendarView,
+        component: () => import("@/components/mypage/CalendarView.vue"),
       },
       {
         path: "comment",
         name: "comment-list",
-        component: CommentList,
+        component: () => import("@/components/mypage/CommentList.vue"),
       },
       {
         path: "likevideos",
         name: "like-videos",
-        component: LikeVideos,
+        component: () => import("@/components/mypage/LikeVideos.vue"),
       },
       {
         path: "follow",
         name: "follow-view",
-        component: FollowView,
+        component: () => import("@/components/mypage/FollowView.vue"),
       },
       {
         path: "myinfo",
         name: "my-info",
-        component: MyInfo,
+        component: () => import("@/components/mypage/MyInfo.vue"),
       },
       {
         path: "modifyform",
         name: "modify-form",
-        component: ModifyForm,
+        component: () => import("@/components/mypage/MyInfo/ModifyForm.vue"),
       },
     ],
+  },
+  {
+    path: "/guest",
+    name: "guest",
+    component: GuestPage,
   },
 ];
 

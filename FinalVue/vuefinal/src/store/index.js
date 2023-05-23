@@ -41,13 +41,11 @@ export default new Vuex.Store({
       state.loginUser = null;
     },
     STOREVIDEO(state, video) {
-      console.log(video);
       state.video = video;
     },
   },
   actions: {
     storeVideo(context, video) {
-      console.log(video);
       context.commit("STOREVIDEO", video);
     },
     userLogIn({ commit }, user) {

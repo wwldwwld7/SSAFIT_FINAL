@@ -9,9 +9,11 @@ public interface FollowService {
 	
 	int addFollow(Follow follow);
 	
-	int removeFollow(Follow follow);
+	int removeFollow(String follower, String following);
 	
 	List<User> searchByFollower(String follower);
 	
 	List<User> searchByFollowing(String following);
+	
+	Follow searchRelation(String follower, String following);
 }
