@@ -2,12 +2,7 @@
   <div>
     <img :src="video.snippet.thumbnails.default.url" />
     {{ title }}
-    <router-link
-      @click.native="storeVideo(video)"
-      :to="{ name: 'detail', params: { video: video } }"
-    >
-      상세보기</router-link
-    >
+    <button @click="storeVideo(video)">상세 보기</button>
   </div>
 </template>
 
@@ -23,7 +18,9 @@ export default {
   },
   methods: {
     storeVideo(value) {
-      this.$store.dispatch("storeVideo", value);
+      this.$store
+        .dispatch("storeVideo", value)
+        .then(() => this.$router.push({ name: "detail" }));
     },
   },
 };

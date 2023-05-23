@@ -11,10 +11,12 @@
       <router-link :to="{ name: 'calendar-view' }">캘린더</router-link>
     </div>
     <div>
-      <router-link :to="{ name: 'like-videos' }">찜 목록</router-link>
+      <router-link :to="{ name: 'like-videos', params: { type: 'guest' } }"
+        >찜 목록</router-link
+      >
     </div>
     <div>
-      <router-link :to="{ name: 'follow-view', params: { nickName: nickName } }"
+      <router-link :to="{ name: 'follow-view', params: { type: 'guest' } }"
         >팔로워/팔로잉</router-link
       >
     </div>
@@ -54,6 +56,7 @@ export default {
     ...mapGetters(["loginUser"]),
   },
   created() {
+    this.$store.dispatch("guest", this.$route.params.nickName);
     this.nickName = this.$route.params.nickName;
     console.log(this.loginUser.nickName);
     console.log(this.nickName);

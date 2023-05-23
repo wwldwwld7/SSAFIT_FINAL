@@ -1,12 +1,8 @@
 <template>
-  <div>
-    <img :src="`${thumbnails}`" />
-    {{ title }}
-    <router-link
-      :to="{ name: 'follow-view', params: { nickName: comment.nickName } }"
-      >{{ comment.nickName }}</router-link
-    >
-    {{ comment.content }}
+  <div class="text-content">
+    <img :src="`${thumbnails}`" /><br />
+    {{ title }}<br />
+    {{ comment.content }}<br />
     <button @click="modify(comment)">수정</button>
     <button @click="remove(comment)">삭제</button>
   </div>
@@ -48,4 +44,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.text-content {
+  text-align: center;
+}
+</style>
