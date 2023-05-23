@@ -54,10 +54,11 @@ export default new Vuex.Store({
         .then((res) => {
           // console.log(res);
           commit("LOGIN", res.data);
-          // window.location.href = "http://localhost:8080/video";
+          window.location.href = "http://localhost:8080/video";
         })
         .catch(() => {
           alert("로그인에 실패하였습니다.");
+          window.location.href = "http://localhost:8080/user";
         });
     },
     duplicateIdCheck({ commit }, userId) {

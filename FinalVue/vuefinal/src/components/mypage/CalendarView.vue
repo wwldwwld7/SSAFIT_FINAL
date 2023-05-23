@@ -1,6 +1,6 @@
 <!-- 식단관리 -->
 <template>
-  <div>
+  <v-app>
     식단관리
     <detail-calender></detail-calender>
     <v-row class="fill-height">
@@ -79,7 +79,7 @@
         </v-sheet>
       </v-col>
     </v-row>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -119,7 +119,6 @@ export default {
   },
   methods: {
     practice() {
-      
       alert("확인");
     },
     viewDay({ date }) {
@@ -143,7 +142,7 @@ export default {
         this.selectedEvent = event;
         this.selectedElement = nativeEvent.target;
         requestAnimationFrame(() =>
-          requestAnimationFrame(() => (this.selectedOpen = true))
+          requestAnimationFrame(() => (this.selectedOpen = true)),
         );
       };
 
