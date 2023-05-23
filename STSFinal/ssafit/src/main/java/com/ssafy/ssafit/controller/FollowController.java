@@ -37,10 +37,10 @@ public class FollowController {
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping
-	public ResponseEntity<?> removeFollow(@RequestBody Follow follow){
-		int result = followService.removeFollow(follow);
-		if(result==0) {
+	@DeleteMapping("/{follower}/{following}")
+	public ResponseEntity<?> removeFollow(@PathVariable String follower,@PathVariable String following){
+		int result = followService.removeFollow(follower, following);
+		if(result == 0) {
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<Void>(HttpStatus.OK);
@@ -49,7 +49,7 @@ public class FollowController {
 	@GetMapping("/to/{follower}")
 	public ResponseEntity<?> searchByFollower(@PathVariable String follower){
 		List<User> followings = followService.searchByFollower(follower);
-		if(followings==null) {
+		if(followings == null) {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<List<User>>(followings, HttpStatus.OK);
@@ -58,11 +58,20 @@ public class FollowController {
 	@GetMapping("/from/{following}")
 	public ResponseEntity<?> searchByFollowing(@PathVariable String following){
 		List<User> followers = followService.searchByFollowing(following);
-		System.out.println(followers);
 		if(followers==null) {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<List<User>>(followers, HttpStatus.OK);
+	}
+	
+	@GetMapping("/{follower}/{following}")
+	public ResponseEntity<?> searchRelation(@PathVariable String follower,@PathVariable String following){
+		Follow follow = followService.searchRelation(follower, following);
+		if(follow == null) {
+			return new ResponseEntity<> (HttpStatus.NO_CONTENT);
+		}else {
+			return new ResponseEntity<>(follow, HttpStatus.OK);
+		}
 	}
 
 }

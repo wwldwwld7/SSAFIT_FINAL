@@ -2,17 +2,47 @@
   <div>
     <ul>
       <li v-for="(comment, index) in comments" :key="index">
-        <router-link
-          :to="{ name: 'follow-view', params: { nickName: comment.nickName } }"
-          >{{ comment.nickName }}</router-link
-        >
-        {{ comment.content }}
-        <button v-if="loginedUser === loginUser" @click="modify(comment)">
-          수정
-        </button>
-        <button v-if="loginedUser === loginUser" @click="remove(comment)">
-          삭제
-        </button>
+        <div v-if="loginedUser === comment.nickName">
+          <router-link
+            :to="{
+              name: 'mypagemain',
+              params: { nickName: comment.nickName },
+            }"
+            >{{ comment.nickName }}</router-link
+          >
+          {{ comment.content }}
+          <button
+            v-if="loginedUser === comment.nickName"
+            @click="modify(comment)"
+          >
+            수정
+          </button>
+          <button
+            v-if="loginedUser === comment.nickName"
+            @click="remove(comment)"
+          >
+            삭제
+          </button>
+        </div>
+        <div v-if="loginedUser !== comment.nickName">
+          <router-link
+            :to="{ name: 'guest', params: { nickName: comment.nickName } }"
+            >{{ comment.nickName }}</router-link
+          >
+          {{ comment.content }}
+          <button
+            v-if="loginedUser === comment.nickName"
+            @click="modify(comment)"
+          >
+            수정
+          </button>
+          <button
+            v-if="loginedUser === comment.nickName"
+            @click="remove(comment)"
+          >
+            삭제
+          </button>
+        </div>
       </li>
     </ul>
   </div>
@@ -34,7 +64,7 @@ export default {
     };
   },
   created() {
-    this.loginedUser = this.loginUser;
+    this.loginedUser = this.loginUser.nickName;
   },
   computed: {
     ...mapGetters(["loginUser"]),
@@ -47,6 +77,8 @@ export default {
       console.log(value);
       http.delete(`/comment/${value.commentId}`).then(this.$router.go(0));
     },
+    mypage() {},
+    guestpage() {},
   },
 };
 </script>

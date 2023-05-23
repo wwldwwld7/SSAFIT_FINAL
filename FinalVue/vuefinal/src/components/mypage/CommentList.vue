@@ -25,7 +25,7 @@ export default {
     };
   },
   created() {
-    this.nickName = this.$route.params.nickName;
+    this.nickName = this.loginUser.nickName;
     http
       .get(`/comment/user/${this.nickName}`)
       .then((res) => {

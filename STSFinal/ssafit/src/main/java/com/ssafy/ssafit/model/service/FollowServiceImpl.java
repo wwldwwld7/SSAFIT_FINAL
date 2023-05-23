@@ -25,8 +25,8 @@ public class FollowServiceImpl implements FollowService {
 	}
 
 	@Override
-	public int removeFollow(Follow follow) {
-		return followDao.deleteFollow(follow);
+	public int removeFollow(String follower, String following) {
+		return followDao.deleteFollow(follower, following);
 	}
 
 	@Override
@@ -37,6 +37,11 @@ public class FollowServiceImpl implements FollowService {
 	@Override
 	public List<User> searchByFollowing(String following) {
 		return followDao.selectByFollowing(following);
+	}
+
+	@Override
+	public Follow searchRelation(String follower, String following) {
+		return followDao.selectRelation(follower, following);
 	}
 
 }

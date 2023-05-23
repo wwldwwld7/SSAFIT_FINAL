@@ -41,13 +41,11 @@ export default new Vuex.Store({
       state.loginUser = null;
     },
     STOREVIDEO(state, video) {
-      console.log(video);
       state.video = video;
     },
   },
   actions: {
     storeVideo(context, video) {
-      console.log(video);
       context.commit("STOREVIDEO", video);
     },
     userLogIn({ commit }, user) {
@@ -92,7 +90,7 @@ export default new Vuex.Store({
     },
     doModify(context, user) {
       http.put("/user/modify", user).then(({ data }) => {
-        console.log(data)
+        console.log(data);
         context.commit("LOGIN", data);
         window.location.href = "http://localhost:8080/mypage/myinfo";
       });
