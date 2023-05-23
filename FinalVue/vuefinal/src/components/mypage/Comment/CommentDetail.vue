@@ -1,5 +1,7 @@
 <template>
   <div>
+    <img :src="`${thumbnails}`" />
+    {{ title }}
     <router-link
       :to="{ name: 'follow-view', params: { nickName: comment.nickName } }"
       >{{ comment.nickName }}</router-link
@@ -18,6 +20,13 @@ export default {
   props: {
     comment: Object,
   },
+  data() {
+    return {
+      video: {},
+      thumbnails: "",
+      title: "",
+    };
+  },
   methods: {
     modify(value) {
       value;
@@ -26,6 +35,15 @@ export default {
       console.log(value);
       http.delete(`/comment/${value.commentId}`).then(this.$router.go(0));
     },
+  },
+  created() {
+    http
+      .get(`/video/detail/${this.comment.youtubeId}`)
+      .then((res) => (this.video = res.data))
+      .then(() => {
+        this.thumbnails = this.video.thumbnails;
+        this.title = this.video.title;
+      });
   },
 };
 </script>

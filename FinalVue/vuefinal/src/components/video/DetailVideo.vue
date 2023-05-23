@@ -53,7 +53,9 @@ export default {
   async created() {
     this.youtubeId = this.video.id.videoId;
     this.channelName = this.video.snippet.channelTitle;
-    this.title = he.decode(this.video.snippet.title);
+    this.title = he
+      .decode(this.video.snippet.title)
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, "");
     this.thumbnails = this.video.snippet.thumbnails.default.url;
     const video = {
       channelName: this.channelName,
@@ -67,7 +69,6 @@ export default {
       .get(`/like/start/${this.loginUser.nickName}/${this.youtubeId}`)
       .then(() => {
         this.isShow = true;
-        console.log(this.isShow);
       })
       .catch(() => {
         this.isShow = false;
