@@ -23,16 +23,16 @@ export default {
           src: "https://mblogthumb-phinf.pstatic.net/20160723_80/rimiy_1469204734914Vwi69_JPEG/1.jpeg?type=w2",
         },
         {
-          src: "https://mblogthumb-phinf.pstatic.net/20160723_87/rimiy_1469204735995kCsvw_JPEG/5.jpg?type=w2",
+          src: "https://images.pexels.com/photos/1472887/pexels-photo-1472887.jpeg?auto=compress&cs=tinysrgb&w=1600",
         },
         {
-          src: "https://mblogthumb-phinf.pstatic.net/20160723_80/rimiy_1469204734914Vwi69_JPEG/1.jpeg?type=w2",
+          src: "https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg?auto=compress&cs=tinysrgb&w=1600",
         },
         {
-          src: "https://mblogthumb-phinf.pstatic.net/20160723_80/rimiy_1469204734914Vwi69_JPEG/1.jpeg?type=w2",
+          src: "https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&w=1600",
         },
         {
-          src: "https://mblogthumb-phinf.pstatic.net/20160723_80/rimiy_1469204734914Vwi69_JPEG/1.jpeg?type=w2",
+          src: "https://images.pexels.com/photos/2597884/pexels-photo-2597884.jpeg?auto=compress&cs=tinysrgb&w=1600",
         },
       ],
     };
@@ -41,4 +41,19 @@ export default {
 </script>
 :touch={ left: () => activeSlide--, right: () => activeSlide++ }
 
-<style scoped></style>
+<style scoped>
+.v-window__next {
+  background: rgba(0, 0, 0, 0.15);
+  height: 68px;
+  width: 68px;
+  top: calc(50% - 33px);
+  margin-right: 13%;
+}
+.v-window__prev {
+  background: rgba(0, 0, 0, 0.15);
+  height: 68px;
+  width: 68px;
+  top: calc(50% - 33px);
+  margin-left: 13%;
+}
+</style>

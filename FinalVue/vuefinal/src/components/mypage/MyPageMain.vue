@@ -3,6 +3,7 @@
   <div>
     <h2>마이페이지</h2>
     <div>
+      <v-icon style="color: black" large>mdi-calendar-month</v-icon>
       <router-link :to="{ name: 'calendar-view' }">식단관리</router-link>
       <router-link :to="{ name: 'comment-list' }">작성한 댓글</router-link>
       <router-link :to="{ name: 'like-videos' }">찜한 영상</router-link>
