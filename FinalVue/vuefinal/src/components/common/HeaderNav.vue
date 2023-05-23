@@ -69,6 +69,7 @@ header {
 
 .container {
   width: 1270px;
+  margin-top: 80px;
 }
 
 .center {
