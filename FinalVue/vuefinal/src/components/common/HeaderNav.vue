@@ -1,34 +1,36 @@
 <template>
   <header>
     <div class="container">
-      <div class="left">
+      <div class="center">
         <h1><a v-if="!loginUser" href="http://localhost:8080/">SSAFIT</a></h1>
         <h1>
           <a v-if="loginUser" href="http://localhost:8080/video">SSAFIT</a>
         </h1>
       </div>
-      <nav>
-        <ul>
-          <li>
-            <router-link v-if="!loginUser" to="/user" class="hover-link">
-              로그인
-            </router-link>
-          </li>
-          <li>
-            <router-link v-if="loginUser" to="/mypage" class="hover-link">
-              {{ loginUser.nickName
-              }}<span style="color: black, font-weight: normal;"
-                >님 환영합니다.</span
-              >
-            </router-link>
-          </li>
-          <li>
-            <button v-if="loginUser" @click="doLogOut" class="hover-link">
-              로그아웃
-            </button>
-          </li>
-        </ul>
-      </nav>
+      <div class="right">
+        <nav>
+          <ul>
+            <li>
+              <router-link v-if="!loginUser" to="/user" class="hover-link">
+                로그인
+              </router-link>
+            </li>
+            <li>
+              <router-link v-if="loginUser" to="/mypage" class="hover-link">
+                {{ loginUser.nickName
+                }}<span style="color: black, font-weight: normal;"
+                  >님 환영합니다.</span
+                >
+              </router-link>
+            </li>
+            <li>
+              <button v-if="loginUser" @click="doLogOut" class="hover-link">
+                로그아웃
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 </template>
@@ -59,48 +61,39 @@ a:active {
   color: navy;
   text-decoration: none;
 }
+
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .container {
   width: 1270px;
-  /* margin: 0 auto; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
-.left {
-  flex-grow: 1;
+
+.center {
   text-align: center;
 }
 
-nav ul {
+nav {
+  float: right;
+}
+
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-nav ul li {
+li {
   display: inline-block;
   margin-left: 10px;
 }
-header nav ul {
-  display: flex;
-  text-align: center;
-}
-/* .hover-link.active {
-  color: #22aee5;
-} */
-
-/* .hover-link {
-  color: var(--blueColor);
-} */
 
 .hover-link:hover {
   color: #22aee5;
 }
+
 .hover-link:after {
   opacity: 0;
   content: "";
@@ -112,6 +105,7 @@ header nav ul {
   bottom: 0;
   transition: all 0.3s ease-in-out;
 }
+
 .hover-link {
   position: relative;
   display: inline-block;

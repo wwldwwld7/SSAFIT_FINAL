@@ -42,7 +42,6 @@ public class LikeVideoController {
 	public ResponseEntity<?> removeLikeVideo(@PathVariable String nickName, @PathVariable String youtubeId){
 		int result = likeVideoService.removeLikeVideo(nickName, youtubeId);
 		if(result==0) {
-			System.out.println("삭제할게 없어");
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<Void>(HttpStatus.OK);
@@ -50,10 +49,8 @@ public class LikeVideoController {
 	
 	@GetMapping("/start/{nickName}/{youtubeId}")
 	public ResponseEntity<?> searchOne(@PathVariable String nickName, @PathVariable String youtubeId){
-		System.out.println("시작하면 들어오니?");
 		LikeVideo tmp = likeVideoService.searchOne(nickName, youtubeId);
 		if(tmp==null) {
-			System.out.println("없엉");
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
