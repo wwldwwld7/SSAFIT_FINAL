@@ -41,7 +41,6 @@ export default {
   },
   data() {
     return {
-      // video: this.video,
       youtubeId: "",
       channelName: "",
       title: "",

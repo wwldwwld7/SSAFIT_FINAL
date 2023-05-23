@@ -21,16 +21,23 @@ export default {
   },
   data() {
     return {
+      type: "",
+      nickName: "",
       infos: [],
     };
   },
   computed: {
     ...mapGetters(["loginUser"]),
+    ...mapGetters(["guestUser"]),
   },
   created() {
-    http
-      .get(`/like/${this.loginUser.nickName}`)
-      .then((res) => (this.infos = res.data));
+    this.type = this.$route.params.type;
+    if (this.type === "user") {
+      this.nickName = this.loginUser.nickName;
+    } else {
+      this.nickName = this.guestUser;
+    }
+    http.get(`/like/${this.nickName}`).then((res) => (this.infos = res.data));
   },
 };
 </script>

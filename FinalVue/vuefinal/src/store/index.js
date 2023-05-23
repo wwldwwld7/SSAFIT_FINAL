@@ -10,12 +10,16 @@ export default new Vuex.Store({
   state: {
     user: {},
     loginUser: null, //로그인된 사람의 닉네임
+    guestUser: "",
     availableId: "", //아이디 중복체크
     availablenickName: "", //닉네임 중복체크
     video: {},
   },
 
   getters: {
+    guestUser(state) {
+      return state.guestUser;
+    },
     loginUser(state) {
       return state.loginUser;
     },
@@ -27,6 +31,9 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    GUEST(state, payload) {
+      state.guestUser = payload;
+    },
     LOGIN(state, payload) {
       // state.loginUser = payload.nickName;
       state.loginUser = payload;
@@ -45,6 +52,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    guest(context, guest) {
+      context.commit("GUEST", guest);
+    },
     storeVideo(context, video) {
       context.commit("STOREVIDEO", video);
     },
@@ -100,7 +110,7 @@ export default new Vuex.Store({
   modules: {},
   plugins: [
     createPersistedState({
-      paths: ["loginUser", "video"], //여기에 쓴 state만 새로고침해도 저장되어있음
+      paths: ["loginUser", "video", "guestUser"], //여기에 쓴 state만 새로고침해도 저장되어있음
     }),
   ],
 });
