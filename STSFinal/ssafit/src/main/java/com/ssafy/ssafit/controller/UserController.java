@@ -41,7 +41,6 @@ public class UserController {
 	
 	@PostMapping("/signup")
 	public ResponseEntity<?> singUp(@RequestBody User user){
-		System.out.println(user.toString());
 		int result = userService.createUser(user);
 		if(result == 0)
 			return new ResponseEntity<Integer>(result, HttpStatus.NO_CONTENT);
@@ -61,7 +60,6 @@ public class UserController {
 				status = HttpStatus.BAD_REQUEST;
 			}
 			else {
-				System.out.println(1);
 //				result.put("access-token", jwtUtil.createToken("id",tmp.getUserId()));
 				result.put("userId", tmp.getUserId());
 				result.put("message", "SUCCESS");
@@ -118,7 +116,6 @@ public class UserController {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 		}
 		User tmp = userService.loginUser(user.getUserId());
-		System.out.println(tmp.toString());
 		return new ResponseEntity<User>(tmp, HttpStatus.OK);
 	}
 	

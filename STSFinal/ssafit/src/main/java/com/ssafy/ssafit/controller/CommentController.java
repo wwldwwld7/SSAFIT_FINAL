@@ -53,7 +53,6 @@ public class CommentController {
 	@GetMapping("/user/{nickName}")
 	public ResponseEntity<?> searchByUser(@PathVariable String nickName){
 		List<Comment> list = commentService.searchCommentByUser(nickName);
-		System.out.println(list);
 		if(list.size() == 0 || list == null) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}else {
