@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div v-if="loginedUser === nickName">
       <router-link :to="{ name: 'mypagemain', params: { nickName: nickName } }">
         {{ nickName }}
@@ -40,4 +40,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>

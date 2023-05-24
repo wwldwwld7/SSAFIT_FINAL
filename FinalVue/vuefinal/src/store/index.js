@@ -78,7 +78,7 @@ export default new Vuex.Store({
           commit("DUPLICATEIDCHECK", data);
         })
         .catch(() => {
-          commit("DUPLICATEIDCHECK", "");
+          commit("DUPLICATEIDCHECK", false);
         });
     },
     duplicateNickNameCheck({ commit }, nickName) {
@@ -88,7 +88,7 @@ export default new Vuex.Store({
           commit("DUPLICATENICKNAMECHECK", data);
         })
         .catch(() => {
-          commit("DUPLICATENICKNAMECHECK", "");
+          commit("DUPLICATENICKNAMECHECK", false);
         });
     },
     doSignUp(context, user) {
