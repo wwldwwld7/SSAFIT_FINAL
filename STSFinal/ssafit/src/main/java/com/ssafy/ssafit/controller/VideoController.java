@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,19 +52,7 @@ public class VideoController {
 			return new ResponseEntity<>(video, HttpStatus.OK);
 		}
 	}
-	
-//	//keyword가 포함된 영화들을 검색 ( 검색창에 keyword로 검색할 때 필요)
-//	@GetMapping("/{keyword}")
-//	public ResponseEntity<List<Video>> searchByTitle(@PathVariable String keyword) {
-//		List<Video> list = videoService.searchByTitle(keyword);
-//		
-//		if(list.size() == 0 || list == null) {
-//			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//		}else {
-//			return new ResponseEntity<>(list, HttpStatus.OK);
-//		}
-//	}
-	 
+
 	//youtubeId로 DB에 이 영상관련 정보가 이미 있는지 확인한다.
 	@PostMapping("/check/{youtubeId}")
 	public ResponseEntity<?> searchByYoutubeId(@PathVariable String youtubeId){
@@ -84,5 +73,5 @@ public class VideoController {
 		}
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
-	
+
 }

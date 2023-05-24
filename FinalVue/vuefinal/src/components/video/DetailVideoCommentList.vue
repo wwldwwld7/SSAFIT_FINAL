@@ -1,47 +1,55 @@
 <template>
-  <div>
-    <ul>
+  <div class="text-content3">
+    <ul class="line" style="list-style-type: none">
       <li v-for="(comment, index) in comments" :key="index">
-        <div v-if="loginedUser === comment.nickName">
-          <router-link
-            :to="{
-              name: 'mypagemain',
-              params: { nickName: comment.nickName },
-            }"
-            >{{ comment.nickName }}</router-link
-          >
-          {{ comment.content }}
-          <button
-            v-if="loginedUser === comment.nickName"
-            @click="modify(comment)"
-          >
-            수정
-          </button>
-          <button
-            v-if="loginedUser === comment.nickName"
-            @click="remove(comment)"
-          >
-            삭제
-          </button>
-        </div>
-        <div v-if="loginedUser !== comment.nickName">
-          <router-link
-            :to="{ name: 'guest', params: { nickName: comment.nickName } }"
-            >{{ comment.nickName }}</router-link
-          >
-          {{ comment.content }}
-          <button
-            v-if="loginedUser === comment.nickName"
-            @click="modify(comment)"
-          >
-            수정
-          </button>
-          <button
-            v-if="loginedUser === comment.nickName"
-            @click="remove(comment)"
-          >
-            삭제
-          </button>
+        <div>
+          <div class="row" v-if="loginedUser === comment.nickName">
+            <div class="nickName">
+              <router-link
+                :to="{
+                  name: 'mypagemain',
+                  params: { nickName: comment.nickName },
+                }"
+                >{{ comment.nickName }}</router-link
+              >
+            </div>
+            <div class="content">
+              {{ comment.content }}
+            </div>
+            <div class="btn">
+              <button
+                v-if="loginedUser === comment.nickName"
+                @click="modify(comment)"
+              >
+                수정
+              </button>
+              <button
+                v-if="loginedUser === comment.nickName"
+                @click="remove(comment)"
+              >
+                삭제
+              </button>
+            </div>
+            <div v-if="loginedUser !== comment.nickName">
+              <router-link
+                :to="{ name: 'guest', params: { nickName: comment.nickName } }"
+                >{{ comment.nickName }}</router-link
+              >
+              {{ comment.content }}
+              <button
+                v-if="loginedUser === comment.nickName"
+                @click="modify(comment)"
+              >
+                수정
+              </button>
+              <button
+                v-if="loginedUser === comment.nickName"
+                @click="remove(comment)"
+              >
+                삭제
+              </button>
+            </div>
+          </div>
         </div>
       </li>
     </ul>
@@ -71,11 +79,18 @@ export default {
   },
   methods: {
     modify(value) {
-      value;
+      this.$router.push({
+        name: "modify-comment",
+        params: { comment: value, type: "video" },
+      });
     },
     remove(value) {
-      console.log(value);
-      http.delete(`/comment/${value.commentId}`).then(this.$router.go(0));
+      var delConfirm = confirm("댓글을 삭제하시겠습니까?");
+      if (delConfirm) {
+        http.delete(`/comment/${value.commentId}`).then(this.$router.go(0));
+      } else {
+        alert("삭제가 취소되었습니다.");
+      }
     },
     mypage() {},
     guestpage() {},
@@ -83,4 +98,31 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.text-content3 {
+  margin-top: 10px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.line > li {
+  height: 35px;
+}
+.line * {
+  margin-top: 1px;
+}
+.nickName {
+  width: 50px;
+}
+.content {
+  width: 370px;
+}
+.btn {
+  width: 80px;
+}
+.btn * {
+  padding: auto;
+}
+</style>
