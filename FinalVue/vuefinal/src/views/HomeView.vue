@@ -1,15 +1,17 @@
 <!-- 완전 초기화면 -->
 
 <template>
-  <v-carousel>
-    <v-carousel-item
-      v-for="(item, index) in items"
-      :key="index"
-      :src="item.src"
-      reverse-transition="fade-transition"
-      transition="fade-transition"
-    ></v-carousel-item>
-  </v-carousel>
+  <v-app>
+    <v-carousel height="600">
+      <v-carousel-item
+        v-for="(item, index) in items"
+        :key="index"
+        :src="item.src"
+        reverse-transition="fade-transition"
+        transition="fade-transition"
+      ></v-carousel-item>
+    </v-carousel>
+  </v-app>
 </template>
 
 <script>

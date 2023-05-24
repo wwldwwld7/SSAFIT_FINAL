@@ -68,7 +68,9 @@ export default {
     unfollow() {
       http
         .delete(`/follow/${this.loginUser.nickName}/${this.nickName}`)
-        .then(() => (this.followflag = !this.followflag));
+        .then(() => {
+          this.followflag = !this.followflag;
+        });
       // .then(() => this.$router.go(0));
     },
     follow() {
@@ -85,17 +87,17 @@ export default {
     ...mapGetters(["loginUser", "guestUser"]),
   },
   created() {
-    if (this.guestUser == null) {
+    if (this.$route.params.nickName != null) {
       this.$store.dispatch("guest", this.$route.params.nickName);
     }
     // this.nickName = this.$route.params.nickName;
     this.nickName = this.guestUser;
     // console.log(this.loginUser.nickName);
-    // console.log(this.nickName);
+    console.log(this.nickName);
     http
       .get(`/follow/${this.loginUser.nickName}/${this.nickName}`)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.status == 204) {
           this.followflag = false;
         } else {

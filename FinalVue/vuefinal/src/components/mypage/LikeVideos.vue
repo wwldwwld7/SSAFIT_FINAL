@@ -34,12 +34,16 @@ export default {
   },
   created() {
     this.type = this.$route.params.type;
-    if (this.type === "user") {
-      this.nickName = this.loginUser.nickName;
-    } else {
+    // console.log(this.type);
+    // console.log(this.guestUser);
+    if (this.type == "guest") {
       this.nickName = this.guestUser;
+    } else {
+      this.nickName = this.loginUser.nickName;
     }
-    http.get(`/like/${this.nickName}`).then((res) => (this.infos = res.data));
+    http.get(`/like/${this.nickName}`).then((res) => {
+      this.infos = res.data;
+    });
   },
 };
 </script>

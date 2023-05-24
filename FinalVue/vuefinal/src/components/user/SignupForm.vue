@@ -4,7 +4,13 @@
       <div>
         <label for="id">아이디</label>
         <div class="check">
-          <input type="text" v-model="userId" name="id" id="name" />
+          <input
+            type="text"
+            v-model="userId"
+            @keyup="newid"
+            name="id"
+            id="name"
+          />
           <button class="dbtn" @click="duplicateIdCheck">중복확인</button>
         </div>
         <span v-if="userId" v-show="availableId" style="color: blue"
@@ -19,7 +25,13 @@
 
         <label for="nickname">닉네임</label>
         <div class="check">
-          <input type="text" v-model="nickName" name="nickname" id="nickname" />
+          <input
+            type="text"
+            v-model="nickName"
+            @keyup="newnickName"
+            name="nickname"
+            id="nickname"
+          />
           <button class="dbtn" @click="duplicateNickNameCheck">중복확인</button>
         </div>
         <span v-if="nickName" v-show="availablenickName" style="color: blue"
@@ -44,7 +56,9 @@
           name="password"
           id="password"
         />
-        <span v-if="!passwordCheckFlag" style="color: red"
+        <span
+          v-if="!passwordCheckFlag && passwordCheck.length > 0"
+          style="color: red"
           >비밀번호가 일치하지 않습니다.</span
         >
         <span v-if="passwordCheckFlag" style="color: blue"
@@ -91,6 +105,8 @@ export default {
     pwCheck() {
       if (this.password === this.passwordCheck) {
         this.passwordCheckFlag = true;
+      } else {
+        this.passwordCheckFlag = false;
       }
     },
     doSignUp() {
@@ -104,10 +120,37 @@ export default {
       if (
         this.availableId &&
         this.passwordCheckFlag &&
-        this.duplicateNickNameCheck
+        this.availablenickName &&
+        this.name
       ) {
         this.$store.dispatch("doSignUp", user);
+      } else if (
+        !this.availableId &&
+        this.passwordCheckFlag &&
+        this.availablenickName
+      ) {
+        alert("아이디를 중복확인 해주세요.");
+      } else if (
+        this.availableId &&
+        !this.availablenickName &&
+        this.passwordCheckFlag
+      ) {
+        alert("닉네임을 중복확인 해주세요.");
+      } else if (
+        this.availableId &&
+        this.availablenickName &&
+        !this.passwordCheckFlag
+      ) {
+        alert("비밀번호를 확인해 주세요.");
+      } else {
+        alert("입력이 올바르지 않습니다.");
       }
+    },
+    newid() {
+      this.$store.commit("DUPLICATEIDCHECK", false);
+    },
+    newnickName() {
+      this.$store.commit("DUPLICATENICKNAMECHECK", false);
     },
   },
   computed: {
@@ -171,7 +214,6 @@ label {
   letter-spacing: 1.2px;
 }
 .signup-btn {
-  margin-top: 10px;
   padding: 16px 75px;
   background-color: rgb(42, 42, 133);
   border-radius: 10px;
@@ -194,5 +236,8 @@ label {
   margin-bottom: 20px;
   margin-left: 5px;
   white-space: nowrap;
+}
+span {
+  display: block;
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div>
-    FollowingView 입니당
+    <!-- Following -->
     <ul>
-      <li v-for="(info, index) in followList" :key="index">
+      <div v-for="(info, index) in followList" :key="index">
         <following-view-result :info="info"></following-view-result>
-      </li>
+      </div>
     </ul>
   </div>
 </template>

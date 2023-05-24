@@ -3,7 +3,7 @@
     <ul class="line" style="list-style-type: none">
       <li v-for="(comment, index) in comments" :key="index">
         <div>
-          <div class="row" v-if="loginedUser === comment.nickName">
+          <div class="row" v-if="loginedUser == comment.nickName">
             <div class="nickName">
               <router-link
                 :to="{
@@ -32,7 +32,7 @@
               </button>
             </div>
           </div>
-          <div class="row" v-if="loginedUser !== comment.nickName">
+          <div class="row" v-if="loginedUser != comment.nickName">
             <div class="nickName">
               <router-link
                 :to="{ name: 'guest', params: { nickName: comment.nickName } }"
