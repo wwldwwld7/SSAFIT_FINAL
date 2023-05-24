@@ -71,6 +71,7 @@ public class CommentController {
 	
 	@PutMapping
 	public ResponseEntity<?> modifyComment(@RequestBody Comment comment){
+		System.out.println(comment);
 		if(commentService.modifyComment(comment) == 1) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}else {

@@ -1,26 +1,36 @@
 <!-- 영상 상세 정보 화면 -->
 <template>
-  <div class="text-content">
-    <iframe
-      id="ytplayer"
-      type="text/html"
-      width="720"
-      height="405"
-      :src="`https://www.youtube.com/embed/${youtubeId}`"
-      frameborder="0"
-      allowfullscreen
-    ></iframe
-    ><br />
-    <v-btn icon @click="liked" v-if="isShow">
-      <v-icon style="color: red">mdi-heart</v-icon>
-    </v-btn>
-    <v-btn @click="unliked" v-if="!isShow">
-      <v-icon style="color: black">mdi-heart-outline</v-icon>
-    </v-btn>
-    <div>채녈명 : {{ channelName }}<br /></div>
-    <div>영상제목 : {{ title }}<br /></div>
-    <!-- <img :src="`${thumbnails}`" /> -->
-    <detail-video-comment :youtubeId="youtubeId"></detail-video-comment>
+  <div>
+    <div class="videobox">
+      <iframe
+        id="ytplayer"
+        type="text/html"
+        width="720"
+        height="405"
+        :src="`https://www.youtube.com/embed/${youtubeId}`"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="text-content1">
+      <div>
+        <v-btn icon @click="liked" v-if="isShow">
+          <v-icon style="color: red">mdi-heart</v-icon>
+        </v-btn>
+        <v-btn icon @click="unliked" v-if="!isShow">
+          <v-icon style="color: black">mdi-heart-outline</v-icon>
+        </v-btn>
+      </div>
+      <div>
+        <div>채녈명 : {{ channelName }}</div>
+      </div>
+      <div>
+        <div>영상제목 : {{ title }}</div>
+      </div>
+      <div>
+        <detail-video-comment :youtubeId="youtubeId"></detail-video-comment>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -100,7 +110,14 @@ export default {
 </script>
 
 <style scoped>
-.text-content {
+.videobox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.text-content1 * {
   text-align: center;
+  margin-bottom: 10px;
 }
 </style>

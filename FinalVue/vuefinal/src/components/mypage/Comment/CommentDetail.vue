@@ -25,10 +25,12 @@ export default {
   },
   methods: {
     modify(value) {
-      value;
+      this.$router.push({
+        name: "modify-comment",
+        params: { comment: value, type: "comment" },
+      });
     },
     remove(value) {
-      console.log(value);
       http.delete(`/comment/${value.commentId}`).then(this.$router.go(0));
     },
   },

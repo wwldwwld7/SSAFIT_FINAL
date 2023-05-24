@@ -90,6 +90,12 @@ const routes = [
         component: () => import("@/components/mypage/CommentList.vue"),
       },
       {
+        path: "modify-comment",
+        name: "modify-comment",
+        component: () =>
+          import("@/components/mypage/Comment/CommentModify.vue"),
+      },
+      {
         path: "likevideos",
         name: "like-videos",
         component: () => import("@/components/mypage/LikeVideos.vue"),

@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="(video, index) in videos" :key="index">
+  <div class="search-video-result">
+    <ul class="video-list">
+      <li v-for="(video, index) in videos" :key="index" class="video-item">
         <search-video-result-list :video="video"></search-video-result-list>
       </li>
     </ul>
@@ -28,4 +28,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.search-video-result {
+  margin-top: 20px;
+}
+
+.video-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.video-item {
+  margin-bottom: 10px;
+}
+</style>
