@@ -1,10 +1,10 @@
 <template>
-  <div>
-    FollowerView 입니당
+  <div class="container">
+    <!-- Follower -->
     <ul>
-      <li v-for="(info, index) in followedList" :key="index">
+      <div v-for="(info, index) in followedList" :key="index">
         <follower-view-result :info="info"></follower-view-result>
-      </li>
+      </div>
     </ul>
   </div>
 </template>
@@ -23,4 +23,6 @@ export default {
 };
 </script>
 
-<style></style>
+<stylescoped>
+
+</style>

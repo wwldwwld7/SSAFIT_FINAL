@@ -3,7 +3,7 @@
     <ul class="line" style="list-style-type: none">
       <li v-for="(comment, index) in comments" :key="index">
         <div>
-          <div class="row" v-if="loginedUser === comment.nickName">
+          <div class="row" v-if="loginedUser == comment.nickName">
             <div class="nickName">
               <router-link
                 :to="{
@@ -30,12 +30,18 @@
                 삭제
               </button>
             </div>
-            <div v-if="loginedUser !== comment.nickName">
+          </div>
+          <div class="row" v-if="loginedUser != comment.nickName">
+            <div class="nickName">
               <router-link
                 :to="{ name: 'guest', params: { nickName: comment.nickName } }"
                 >{{ comment.nickName }}</router-link
               >
+            </div>
+            <div class="content">
               {{ comment.content }}
+            </div>
+            <div class="btn">
               <button
                 v-if="loginedUser === comment.nickName"
                 @click="modify(comment)"
@@ -115,6 +121,11 @@ export default {
 }
 .nickName {
   width: 50px;
+}
+.nickName * {
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
 }
 .content {
   width: 370px;
