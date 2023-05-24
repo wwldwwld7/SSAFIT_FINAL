@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.ssafit.model.dao.WorkoutDao">
+
+ <insert id="inserWorkout" parameterType="Workout">
+ 	INSERT INTO workout (nickName, workoutName, workoutCnt, workoutSetCnt, createdDate)
+ 	VALUES (#{nickName},#{workoutName}, 15, 4, #{createdDate})
+ </insert>
+ 
+ <delete id="deleteWorkout" parameterType="int">
+ 	DELETE FROM workout
+ 	WHERE workoutId = #{workoutID}
+ </delete>
+ 
+ <select id="selectMyWorkout" parameterType="String" resultType="Workout">
+ SELECT * from workout
+ WHERE nickName = #{nickName}
+ </select>
+
+</mapper>

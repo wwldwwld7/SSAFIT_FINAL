@@ -7,13 +7,13 @@ public class Workout {
 	private String workoutName;
 	private int workoutCnt;
 	private int workoutSetCnt;
-	private Timestamp createdDate;
+	private String createdDate;
 	private int workoutId;
 	
 	public Workout() {
 	}
 
-	public Workout(String nickName, String workoutName, int workoutCnt, int workoutSetCnt, Timestamp createdDate,
+	public Workout(String nickName, String workoutName, int workoutCnt, int workoutSetCnt, String createdDate,
 			int workoutId) {
 		super();
 		this.nickName = nickName;
@@ -56,11 +56,11 @@ public class Workout {
 		this.workoutSetCnt = workoutSetCnt;
 	}
 
-	public Timestamp getCreatedDate() {
+	public String getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Timestamp createdDate) {
+	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
 	}
 
