@@ -24,6 +24,7 @@
                 수정
               </button>
               <button
+                style="margin-left: 5px"
                 v-if="loginedUser === comment.nickName"
                 @click="remove(comment)"
               >
@@ -104,7 +105,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .text-content3 {
   margin-top: 10px;
 }
@@ -129,9 +130,11 @@ export default {
 }
 .content {
   width: 370px;
+  font-weight: bolder;
 }
 .btn {
   width: 80px;
+  color: gray;
 }
 .btn * {
   padding: auto;

@@ -1,6 +1,7 @@
 <!-- 찜한 영상 화면 -->
 <template>
   <div>
+    <h1>{{ temp }}</h1>
     <ul>
       <li v-for="(info, index) in infos" :key="index">
         <like-video-detail :info="info"></like-video-detail>
@@ -24,6 +25,7 @@ export default {
       type: "",
       nickName: "",
       infos: [],
+      temp: "< 찜한 영상 ~ >",
     };
   },
   computed: {
@@ -46,4 +48,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h1 {
+  text-align: center;
+}
+</style>
