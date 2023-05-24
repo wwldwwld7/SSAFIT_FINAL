@@ -24,18 +24,25 @@
                 수정
               </button>
               <button
+                style="margin-left: 5px"
                 v-if="loginedUser === comment.nickName"
                 @click="remove(comment)"
               >
                 삭제
               </button>
             </div>
-            <div v-if="loginedUser !== comment.nickName">
+          </div>
+          <div class="row" v-if="loginedUser !== comment.nickName">
+            <div class="nickName">
               <router-link
                 :to="{ name: 'guest', params: { nickName: comment.nickName } }"
                 >{{ comment.nickName }}</router-link
               >
+            </div>
+            <div class="content">
               {{ comment.content }}
+            </div>
+            <div class="btn">
               <button
                 v-if="loginedUser === comment.nickName"
                 @click="modify(comment)"
@@ -98,7 +105,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .text-content3 {
   margin-top: 10px;
 }
@@ -116,11 +123,18 @@ export default {
 .nickName {
   width: 50px;
 }
+.nickName * {
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+}
 .content {
   width: 370px;
+  font-weight: bolder;
 }
 .btn {
   width: 80px;
+  color: gray;
 }
 .btn * {
   padding: auto;

@@ -1,6 +1,7 @@
 <!-- 작성한 댓글 화면 -->
 <template>
   <div>
+    <h1>{{ temp }}</h1>
     <comment-list-result :nickName="nickName"></comment-list-result>
   </div>
 </template>
@@ -20,6 +21,7 @@ export default {
   },
   data() {
     return {
+      temp: "< 내가 남긴 댓글 ~ >",
       nickName: "",
       comments: [],
     };
@@ -41,4 +43,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h1 {
+  text-align: center;
+}
+</style>

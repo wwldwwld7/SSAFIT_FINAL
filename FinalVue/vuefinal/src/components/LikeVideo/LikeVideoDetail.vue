@@ -1,10 +1,19 @@
 <template>
   <div class="text-content">
     <router-link :to="{ name: 'detail' }">
-      <img :src="`${video.thumbnails}`" /><br />
+      <div>
+        <div class="img">
+          <img :src="`${video.thumbnails}`" />
+        </div>
+        <div class="title">
+          {{ video.title }}
+        </div>
+        <div class="channelName">
+          {{ video.channelName }}
+        </div>
+      </div>
     </router-link>
-    {{ video.title }}<br />
-    {{ video.channelName }}<br />
+    <hr />
   </div>
 </template>
 
@@ -31,6 +40,25 @@ export default {
 
 <style scoped>
 .text-content {
+  margin-top: 15px;
+  height: 250px;
   text-align: center;
+}
+.text-content * {
+  text-decoration: none;
+}
+img {
+  height: 190px;
+  width: 350px;
+  object-fit: cover;
+}
+.title {
+  margin-bottom: 5px;
+  color: black;
+  font-weight: bolder;
+}
+.channelName {
+  margin-bottom: 5px;
+  color: black;
 }
 </style>
