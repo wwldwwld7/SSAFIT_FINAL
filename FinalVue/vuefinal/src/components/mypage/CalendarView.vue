@@ -1,191 +1,129 @@
 <!-- 식단관리 -->
 <template>
-  <v-app>
-    식단관리
-    <detail-calender></detail-calender>
-    <v-row class="fill-height">
-      <v-col>
-        <v-sheet height="64">
-          <v-toolbar flat>
-            <v-btn
-              outlined
-              class="mr-4"
-              color="grey darken-2"
-              @click="setToday"
-            >
-              Today
-            </v-btn>
-            <v-btn fab text small color="grey darken-2" @click="prev">
-              <v-icon small> mdi-chevron-left </v-icon>
-            </v-btn>
-            <v-btn fab text small color="grey darken-2" @click="next">
-              <v-icon small> mdi-chevron-right </v-icon>
-            </v-btn>
-            <v-toolbar-title v-if="$refs.calendar">
-              {{ $refs.calendar.title }}
-            </v-toolbar-title>
+  <div class="container">
+    <FullCalendar :options="calendarOptions" />
+    <v-app>
+      <v-dialog v-model="isShow" v-if="isShow" max-width="500">
+        <v-card>
+          <v-card-title>
+            <h3 class="text-h5">운동 등록</h3>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12" sm="6" md="4">
+                  <v-text-field
+                    v-model="w_name"
+                    label="운동 종류"
+                    required
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="6" md="4">
+                  <v-text-field v-model="w_cnt" label="횟수(분)"></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="6" md="4">
+                  <v-text-field
+                    v-model="set_cnt"
+                    label="세트 수"
+                    required
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+          <v-card-actions>
             <v-spacer></v-spacer>
-            <v-menu bottom right>
-              <template v-slot:activator>
-                <v-btn outlined color="grey darken-2" @click="practice">
-                  <span>운동 등록</span>
-                </v-btn>
-              </template>
-            </v-menu>
-          </v-toolbar>
-        </v-sheet>
-        <v-sheet height="600">
-          <v-calendar
-            ref="calendar"
-            v-model="focus"
-            color="primary"
-            :events="events"
-            :event-color="getEventColor"
-            @click:event="showEvent"
-            @click:more="viewDay"
-            @click:date="viewDay"
-            @change="updateRange"
-          ></v-calendar>
-          <v-menu
-            v-model="selectedOpen"
-            :close-on-content-click="false"
-            :activator="selectedElement"
-            offset-x
-          >
-            <v-card color="grey lighten-4" min-width="350px" flat>
-              <v-toolbar :color="selectedEvent.color" dark>
-                <v-btn icon>
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-                <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-btn icon>
-                  <v-icon>mdi-heart</v-icon>
-                </v-btn>
-                <v-btn icon>
-                  <v-icon>mdi-dots-vertical</v-icon>
-                </v-btn>
-              </v-toolbar>
-              <v-card-text>
-                <span v-html="selectedEvent.details"></span>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn text color="secondary" @click="selectedOpen = false">
-                  Cancel
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-menu>
-        </v-sheet>
-      </v-col>
-    </v-row>
-  </v-app>
+            <v-btn color="blue-darken-1" variant="text" @click="save">
+              등록
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-app>
+  </div>
 </template>
 
 <script>
-import DetailCalender from "./Calendar/DetailCalender.vue";
+import http from "@/util/http-common";
+import FullCalendar from "@fullcalendar/vue";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import { mapGetters } from "vuex";
 
 export default {
   name: "CalendarView",
-  components: { DetailCalender },
-  data: () => ({
-    focus: "",
-    selectedEvent: {},
-    selectedElement: null,
-    selectedOpen: false,
-    events: [],
-    colors: [
-      "blue",
-      "indigo",
-      "deep-purple",
-      "cyan",
-      "green",
-      "orange",
-      "grey darken-1",
-    ],
-    names: [
-      "Meeting",
-      "Holiday",
-      "PTO",
-      "Travel",
-      "Event",
-      "Birthday",
-      "Conference",
-      "Party",
-    ],
-  }),
   mounted() {
-    this.$refs.calendar.checkChange();
+    // this.$refs.calendar.checkChange();;
+    http.get(`/workout/my/${this.loginUser.nickName}`).then(({ data }) => {
+      let list = [];
+      data.forEach((d) => {
+        let chall = {};
+        chall.title = d.workoutName;
+        chall.date = d.createdDate.substring(0, 10);
+        list.push(chall);
+      });
+      // console.log(list[0]);
+      this.calendarOptions.events = list;
+    });
+  },
+  created() {},
+  computed: {
+    ...mapGetters(["loginUser"]),
+  },
+  components: {
+    FullCalendar, // make the <FullCalendar> tag available
+  },
+  data() {
+    return {
+      guest: "",
+      w_name: "",
+      w_cnt: "",
+      set_cnt: "",
+      date: "",
+      isShow: false,
+      // workout: [],
+      calendarOptions: {
+        plugins: [dayGridPlugin, interactionPlugin],
+        initialView: "dayGridMonth",
+        dateClick: this.handleDateClick,
+        events: [],
+      },
+    };
   },
   methods: {
-    practice() {
-      alert("확인");
+    handleDateClick: function (arg) {
+      // console.log(arg);
+      this.isShow = true;
+      this.date = arg.dateStr;
     },
-    viewDay({ date }) {
-      this.focus = date;
-      this.type = "day";
-    },
-    getEventColor(event) {
-      return event.color;
-    },
-    setToday() {
-      this.focus = "";
-    },
-    prev() {
-      this.$refs.calendar.prev();
-    },
-    next() {
-      this.$refs.calendar.next();
-    },
-    showEvent({ nativeEvent, event }) {
-      const open = () => {
-        this.selectedEvent = event;
-        this.selectedElement = nativeEvent.target;
-        requestAnimationFrame(() =>
-          requestAnimationFrame(() => (this.selectedOpen = true)),
-        );
+    save() {
+      const workout = {
+        nickName: this.loginUser.nickName,
+        workoutName: this.w_name,
+        workoutCnt: this.w_cnt,
+        workoutSetCnt: this.set_cnt,
+        createdDate: this.date,
       };
-
-      if (this.selectedOpen) {
-        this.selectedOpen = false;
-        requestAnimationFrame(() => requestAnimationFrame(() => open()));
-      } else {
-        open();
-      }
-
-      nativeEvent.stopPropagation(); //이벤트 중단
-    },
-    updateRange({ start, end }) {
-      const events = [];
-
-      const min = new Date(`${start.date}T00:00:00`);
-      const max = new Date(`${end.date}T23:59:59`);
-      const days = (max.getTime() - min.getTime()) / 86400000;
-      const eventCount = this.rnd(days, days + 20);
-
-      for (let i = 0; i < eventCount; i++) {
-        const allDay = this.rnd(0, 3) === 0;
-        const firstTimestamp = this.rnd(min.getTime(), max.getTime());
-        const first = new Date(firstTimestamp - (firstTimestamp % 900000));
-        const secondTimestamp = this.rnd(2, allDay ? 288 : 8) * 900000;
-        const second = new Date(first.getTime() + secondTimestamp);
-
-        events.push({
-          name: this.names[this.rnd(0, this.names.length - 1)],
-          start: first,
-          end: second,
-          color: this.colors[this.rnd(0, this.colors.length - 1)],
-          timed: !allDay,
-        });
-      }
-
-      this.events = events;
-    },
-    rnd(a, b) {
-      return Math.floor((b - a + 1) * Math.random()) + a;
+      console.log(workout);
+      http.post("/workout", workout).then(() => {
+        // this.$router.push("/mypage/calendar");
+        window.location.href = "http://localhost:8080/mypage/calendar";
+      });
     },
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+.container {
+  margin-top: 50px;
+}
+.fc-col-header-cell-cushion {
+  color: black !important;
+}
+/* --fc-event-bg-color //등록요소들 배경 */
+.fc-day-sun a {
+  color: red;
+  text-decoration: none;
+}
+</style>

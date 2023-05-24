@@ -10,7 +10,7 @@ export default new Vuex.Store({
   state: {
     user: {},
     loginUser: null, //로그인된 사람의 닉네임
-    guestUser: "",
+    guestUser: null,
     availableId: "", //아이디 중복체크
     availablenickName: "", //닉네임 중복체크
     video: {},

@@ -128,6 +128,7 @@ body {
   display: block;
   max-width: 600px;
   margin: auto;
+  margin-top: 50px;
   margin-bottom: 50px;
   background-color: white;
   max-width: 60%;
@@ -138,8 +139,7 @@ body {
   align-items: center;
 }
 
-#sign-up-container,
-#sign-in-container {
+#sign-up-container {
   padding: 60px 80px;
   width: 600px;
   display: inline-block;
@@ -150,7 +150,7 @@ div input {
   margin-bottom: 20px;
   border: 1px solid #e5e9f5;
   background-color: #f6f7fa;
-  padding: 20px;
+  padding: 15px;
   margin-top: 10px;
   border-radius: 10px;
   width: 100%;
@@ -171,10 +171,14 @@ label {
   letter-spacing: 1.2px;
 }
 .signup-btn {
+  margin-top: 10px;
   padding: 16px 75px;
-  background-color: navy;
+  background-color: rgb(42, 42, 133);
   border-radius: 10px;
   color: white;
+}
+.signup-btn:hover {
+  box-shadow: 0 5px 30px rgb(185, 185, 250);
 }
 .check {
   display: flex;

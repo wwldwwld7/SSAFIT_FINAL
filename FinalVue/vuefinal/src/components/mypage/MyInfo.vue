@@ -1,18 +1,23 @@
-<!-- 회원정보 -->
 <template>
-  <div>
-    <div>
-      <span>이름</span><span class="info">{{ loginUser.name }}</span>
-    </div>
-    <div>
-      <span>아이디</span><span class="info">{{ loginUser.userId }}</span>
-    </div>
-    <div>
-      <span>닉네임</span><span class="info">{{ loginUser.nickName }}</span>
-    </div>
-    <div>
-      <span>상태 메세지</span><span class="info">{{ loginUser.stateMsg }}</span>
-    </div>
+  <div class="container">
+    <table>
+      <tr>
+        <td class="item">이름</td>
+        <td>{{ loginUser.name }}</td>
+      </tr>
+      <tr>
+        <td class="item">아이디</td>
+        <td>{{ loginUser.userId }}</td>
+      </tr>
+      <tr>
+        <td class="item">닉네임</td>
+        <td>{{ loginUser.nickName }}</td>
+      </tr>
+      <tr>
+        <td class="item">상태 메시지</td>
+        <td>{{ loginUser.stateMsg }}</td>
+      </tr>
+    </table>
     <button @click="modify">회원정보 수정</button>
   </div>
 </template>
@@ -34,16 +39,49 @@ export default {
 </script>
 
 <style scoped>
-div > div {
-  width: 300px;
-  margin-bottom: 10px;
+.container {
+  margin-top: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 0 20px gainsboro;
+  padding: 60px 80px;
+  width: 600px;
 }
 
-.info {
-  border: none;
-  padding: 5px;
-  background-color: #e0e0e0;
-  border-radius: 8px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  padding: 20px;
+  /* text-align: left; */
+  border-bottom: 1px solid #e0e0e0;
+  white-space: nowrap;
+}
+
+th {
+  background-color: #f5f5f5;
+}
+
+button {
+  padding: 16px 50px;
+  background-color: rgb(42, 42, 133);
+  border-radius: 10px;
+  color: white;
+}
+
+button:hover {
+  box-shadow: 0 5px 30px rgb(185, 185, 250);
+}
+
+td:nth-child(2) {
   font-weight: bold;
+}
+.item {
+  background: #f6f7fa;
+  width: 120px;
 }
 </style>

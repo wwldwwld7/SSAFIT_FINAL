@@ -72,12 +72,14 @@ export default {
 </script>
 
 <style scoped>
-body {
+/* body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background: white;
-}
+} */
 
 .container {
+  margin-top: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,7 +122,7 @@ form input:active {
 }
 
 form .signin__btn {
-  background: navy;
+  background: rgb(42, 42, 133);
   color: white;
   display: block;
   width: 100%;
@@ -137,7 +139,7 @@ form .signin__btn {
 }
 
 form .signin__btn:hover {
-  box-shadow: 0 15px 30px rgb(185, 185, 250);
+  box-shadow: 0 5px 30px rgb(185, 185, 250);
 }
 .separator {
   display: block;

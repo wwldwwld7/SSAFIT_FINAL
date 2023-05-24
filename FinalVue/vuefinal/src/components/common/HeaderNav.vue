@@ -2,9 +2,21 @@
   <header>
     <div class="container">
       <div class="center">
-        <h1><a v-if="!loginUser" href="http://localhost:8080/">SSAFIT</a></h1>
         <h1>
-          <a v-if="loginUser" href="http://localhost:8080/video">SSAFIT</a>
+          <a v-if="!loginUser" href="http://localhost:8080/"
+            ><v-icon large style="color: #ffd400">mdi-arm-flex</v-icon
+            >SSAFIT<v-icon class="re" large style="color: #ffd400"
+              >mdi-arm-flex</v-icon
+            ></a
+          >
+        </h1>
+        <h1>
+          <a v-if="loginUser" href="http://localhost:8080/video"
+            ><v-icon large style="color: #ffd400">mdi-arm-flex</v-icon
+            >SSAFIT<v-icon class="re" large style="color: #ffd400"
+              >mdi-arm-flex</v-icon
+            ></a
+          >
         </h1>
       </div>
       <div class="right">
@@ -24,7 +36,12 @@
               </router-link>
             </li>
             <li>
-              <button v-if="loginUser" @click="doLogOut" class="hover-link">
+              <button
+                v-if="loginUser"
+                @click="doLogOut"
+                class="hover-link"
+                id="logout"
+              >
                 로그아웃
               </button>
             </li>
@@ -58,18 +75,22 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-  color: navy;
+  color: white;
   text-decoration: none;
 }
 
 header {
   display: flex;
   justify-content: center;
+  background: rgb(42, 42, 133);
 }
 
 .container {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 1270px;
   margin-top: 80px;
+  /* background: cadetblue; */
+  /* box-shadow: 0px 4px 4px -4px black; */
 }
 
 .center {
@@ -113,5 +134,15 @@ li {
   line-height: 5rem;
   font-weight: bold;
   font-size: 1.0625rem;
+}
+#logout {
+  font-size: 15px;
+  color: gray;
+}
+#logout:hover {
+  color: #22aee5;
+}
+.re {
+  -webkit-transform: rotateY(180deg);
 }
 </style>

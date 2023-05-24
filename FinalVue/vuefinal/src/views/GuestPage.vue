@@ -1,24 +1,53 @@
 <template>
   <div>
-    <div v-if="followflag">
-      <button @click="unfollow">Following</button>
+    <div class="title">
+      <h3>
+        {{ guestUser
+        }}<span style="font-size: 17px; color: gray">님의 페이지</span>
+      </h3>
+      <div v-if="followflag">
+        <button class="follow-btn-following" @click="unfollow">
+          Following
+        </button>
+      </div>
+      <div v-if="!followflag">
+        <button class="follow-btn-follow" @click="follow">Follow</button>
+      </div>
     </div>
-    <div v-if="!followflag">
-      <button @click="follow">Follow</button>
-    </div>
-
-    <div>
-      <router-link :to="{ name: 'calendar-view' }">캘린더</router-link>
-    </div>
-    <div>
-      <router-link :to="{ name: 'like-videos', params: { type: 'guest' } }"
-        >찜 목록</router-link
-      >
-    </div>
-    <div>
-      <router-link :to="{ name: 'follow-view', params: { type: 'guest' } }"
-        >팔로워/팔로잉</router-link
-      >
+    <div class="container">
+      <div>
+        <router-link class="link" :to="{ name: 'calendar-view' }">
+          <img
+            style="width: 200px; height: 200px"
+            src="https://cdn.icon-icons.com/icons2/620/PNG/512/calendar-weekly_icon-icons.com_56832.png"
+            alt="calendar"
+          />캘린더</router-link
+        >
+      </div>
+      <div>
+        <router-link
+          class="link"
+          :to="{ name: 'like-videos', params: { type: 'guest' } }"
+        >
+          <img
+            style="width: 200px; height: 200px"
+            src="https://cdn.icon-icons.com/icons2/2090/PNG/512/video_icon_128429.png"
+            alt="video"
+          />찜 목록</router-link
+        >
+      </div>
+      <div>
+        <router-link
+          class="link"
+          :to="{ name: 'follow-view', params: { type: 'guest' } }"
+        >
+          <img
+            style="width: 200px; height: 200px"
+            src="https://cdn-icons-png.flaticon.com/512/2583/2583035.png"
+            alt="follow"
+          />팔로워/팔로잉</router-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -53,13 +82,16 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["loginUser"]),
+    ...mapGetters(["loginUser", "guestUser"]),
   },
   created() {
-    this.$store.dispatch("guest", this.$route.params.nickName);
-    this.nickName = this.$route.params.nickName;
-    console.log(this.loginUser.nickName);
-    console.log(this.nickName);
+    if (this.guestUser == null) {
+      this.$store.dispatch("guest", this.$route.params.nickName);
+    }
+    // this.nickName = this.$route.params.nickName;
+    this.nickName = this.guestUser;
+    // console.log(this.loginUser.nickName);
+    // console.log(this.nickName);
     http
       .get(`/follow/${this.loginUser.nickName}/${this.nickName}`)
       .then((res) => {
@@ -74,4 +106,49 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.title {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: 0px 4px 4px -4px;
+}
+.container {
+  text-align: center;
+}
+.container div {
+  /* float: left; */
+  display: inline-block;
+  align-content: space-between;
+  margin-right: 50px;
+  margin-left: 50px;
+  /* text-align: center; */
+}
+div img {
+  display: flex;
+  margin-bottom: 50px;
+}
+.link {
+  text-decoration: none;
+  color: rgb(42, 42, 133);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.follow-btn-follow {
+  padding: 3px 3px;
+  background: blue;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+.follow-btn-following {
+  padding: 3px 3px;
+  background: red;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+</style>
