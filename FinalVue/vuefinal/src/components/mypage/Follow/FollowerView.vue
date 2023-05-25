@@ -1,8 +1,12 @@
 <template>
-  <div class="container">
+  <div>
     <!-- Follower -->
     <ul>
-      <div v-for="(info, index) in followedList" :key="index">
+      <div
+        v-for="(info, index) in followedList"
+        :key="index"
+        style="height: 43; width: 300"
+      >
         <follower-view-result :info="info"></follower-view-result>
       </div>
     </ul>
@@ -23,5 +27,4 @@ export default {
 };
 </script>
 
-<stylescoped>
-</style>
+<style scoped></style>
