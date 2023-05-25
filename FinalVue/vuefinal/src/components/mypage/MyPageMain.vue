@@ -68,6 +68,9 @@ export default {
   computed: {
     ...mapGetters(["loginUser"]),
   },
+  created() {
+    this.$store.dispatch("makeUserType", "user");
+  },
 };
 </script>
 
@@ -76,7 +79,6 @@ export default {
   margin-top: 50px;
   margin-bottom: 50px;
   padding-bottom: 50px;
-  /* display: inline-block; */
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   box-shadow: 0px 4px 4px -4px;

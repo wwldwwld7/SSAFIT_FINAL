@@ -6,14 +6,14 @@
       님의 follow list
     </div>
     <div class="list">
-      <div>
+      <div class="list-following">
         <label for="" class="following">Following</label>
         <following-view
           class="list-item"
           :followList="followList"
         ></following-view>
       </div>
-      <div>
+      <div class="list-follower">
         <label for="" class="follower">Follower</label>
         <follower-view
           class="list-item"
@@ -45,11 +45,11 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["loginUser"]),
-    ...mapGetters(["guestUser"]),
+    ...mapGetters(["loginUser", "guestUser", "userType"]),
+    // ...mapGetters(["guestUser"]),
   },
   created() {
-    this.type = this.$route.params.type;
+    this.type = this.userType;
     if (this.type === "user") {
       this.nickName = this.loginUser.nickName;
     } else {
@@ -69,7 +69,7 @@ export default {
 <style scoped>
 .container {
   text-align: center;
-  width: 1000px;
+  /* width: 1000px; */
   /* height: auto; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -79,11 +79,25 @@ export default {
   display: inline-flex;
   /* display: inline-block; */
 }
+.list {
+  display: flex;
+  justify-content: center;
+}
 .list div {
   display: inline-block;
+  /* float: left; */
+  /* align-content: center; */
+  /* text-align: center; */
   width: 300px;
-  /* height: auto; */
+  height: auto;
+  height: 500px;
+  margin-right: 30px;
+  border-radius: 8px;
   /* background-color: #f6f7fa; */
+}
+.list-following,
+.list-follower {
+  /* margin: auto; */
 }
 label {
   float: left;

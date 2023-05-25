@@ -87,6 +87,9 @@ export default {
     ...mapGetters(["loginUser", "guestUser"]),
   },
   created() {
+    //게스트의 마이페이지로 들어오면 state의 userType을 "guest"로 바꿔준다.
+    this.$store.dispatch("makeUserType", "guest");
+
     if (this.$route.params.nickName != null) {
       this.$store.dispatch("guest", this.$route.params.nickName);
     }

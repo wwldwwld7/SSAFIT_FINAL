@@ -1,7 +1,10 @@
 <!-- 찜한 영상 화면 -->
 <template>
-  <div>
-    <h1>{{ temp }}</h1>
+  <div class="container">
+    <div class="title">
+      <h3>{{ this.nickName }}</h3>
+      님의 찜 영상
+    </div>
     <ul>
       <li v-for="(info, index) in infos" :key="index">
         <like-video-detail :info="info"></like-video-detail>
@@ -29,17 +32,18 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["loginUser"]),
-    ...mapGetters(["guestUser"]),
+    ...mapGetters(["loginUser", "guestUser", "userType"]),
+    // ...mapGetters(["guestUser"]),
   },
   created() {
-    this.type = this.$route.params.type;
+    console.log(this.userType);
+    this.type = this.userType;
     // console.log(this.type);
     // console.log(this.guestUser);
-    if (this.type == "guest") {
-      this.nickName = this.guestUser;
-    } else {
+    if (this.type == "user") {
       this.nickName = this.loginUser.nickName;
+    } else {
+      this.nickName = this.guestUser;
     }
     http.get(`/like/${this.nickName}`).then((res) => {
       this.infos = res.data;
@@ -49,7 +53,19 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  text-align: center;
+  width: 1000px;
+  /* height: auto; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 h1 {
   text-align: center;
+}
+.title {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: inline-flex;
+  /* display: inline-block; */
 }
 </style>

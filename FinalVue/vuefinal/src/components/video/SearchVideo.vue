@@ -3,14 +3,16 @@
   <div>
     <div class="text-content">
       <div class="search">
-        <v-icon class="search-icon">mdi-search-web</v-icon>
+        <!-- <v-icon class="search-icon">mdi-search-web</v-icon> -->
         <input
           class="inputbox"
           type="text"
           v-model="keyword"
           @keyup.enter="search(keyword)"
         />
-        <button class="btn" @click="search(keyword)">검색</button>
+        <button class="btn" @click="search(keyword)">
+          <v-icon class="search-icon">mdi-magnify</v-icon>
+        </button>
       </div>
     </div>
     <search-video-result :videos="videos"></search-video-result>
@@ -20,6 +22,8 @@
 <script>
 import SearchVideoResult from "./SearchVideoResult.vue";
 import axios from "axios";
+import http from "@/util/http-common.js";
+// import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -30,7 +34,25 @@ export default {
     return {
       keyword: "",
       videos: [],
+      saved: [],
     };
+  },
+  computed: {
+    // ...mapGetters({ v: "videos" }),
+  },
+  created() {
+    http.get("/video").then(({ data }) => {
+      this.saved = data;
+      console.log(this.saved);
+    });
+    // this.$store.dispatch("getVideos");
+    // .then((res) => {
+    //   console.log(res);
+    //   this.videos = res;
+    // });
+    // console.log(this.v);
+    // this.videos = this.v;
+    // console.log(this.videos);
   },
   methods: {
     search(value) {
@@ -85,7 +107,7 @@ export default {
 }
 .inputbox {
   text-indent: 2%;
-  width: 415px;
+  width: 450px;
 }
 .inputbox:focus {
   outline: none;

@@ -33,12 +33,12 @@ public class VideoController {
 	@GetMapping
 	public ResponseEntity<List<Video>> searchAll() {
 		List<Video> list = videoService.searchAll();
-		
-		if(list.size() == 0 || list == null) {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}else {
-			return new ResponseEntity<>(list, HttpStatus.OK);
-		}
+//		if(list.size() == 0 || list == null) {
+//			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//		}else {
+//			return new ResponseEntity<>(list, HttpStatus.OK);
+//		}
+		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 	
 	//youtubeId로 영화 하나만 검색 ( detail 들어갈 때 필요 )
