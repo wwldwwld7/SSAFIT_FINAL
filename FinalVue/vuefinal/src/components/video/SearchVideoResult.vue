@@ -9,6 +9,7 @@
 </template>
 
 <script>
+// import { mapGetters } from "vuex";
 import SearchVideoResultList from "./SearchVideoResultList.vue";
 
 export default {
@@ -20,10 +21,17 @@ export default {
   data() {
     return {};
   },
+  created() {
+    // this.$store.dispatch("getVideo")
+    // .then(());
+  },
+  // computed: {
+  //   ...mapGetters(["videos"]),
+  // },
   methods: {
-    storeVideo(value) {
-      this.$store.dispatch("storeVideo", value);
-    },
+    // storeVideo(value) {
+    //   this.$store.dispatch("storeVideo", value);
+    // },
   },
 };
 </script>

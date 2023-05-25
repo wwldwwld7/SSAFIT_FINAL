@@ -1,6 +1,10 @@
 <!-- 식단관리 -->
 <template>
   <div class="container">
+    <div class="title">
+      <h3>{{ this.nickName }}</h3>
+      님의 calendar
+    </div>
     <FullCalendar :options="calendarOptions" />
     <v-app>
       <v-dialog v-model="isShow" v-if="isShow" max-width="500">
@@ -54,28 +58,40 @@ export default {
   name: "CalendarView",
   mounted() {
     // this.$refs.calendar.checkChange();;
-    http.get(`/workout/my/${this.loginUser.nickName}`).then(({ data }) => {
+    http.get(`/workout/my/${this.nickName}`).then(({ data }) => {
       let list = [];
-      data.forEach((d) => {
+      // data.forEach((d) => {
+      for (let i = 0; i < data.length; i++) {
         let chall = {};
-        chall.title = d.workoutName;
-        chall.date = d.createdDate.substring(0, 10);
+        chall.title = data[i].workoutName;
+        chall.date = data[i].createdDate.substring(0, 10);
+        chall.color = this.colors[i % 10];
+        chall.textColor = "rgb(42, 42, 133)";
         list.push(chall);
-      });
+      }
+      // });
       // console.log(list[0]);
       this.calendarOptions.events = list;
     });
   },
-  created() {},
+  created() {
+    this.type = this.userType;
+    if (this.type == "user") {
+      this.nickName = this.loginUser.nickName;
+    } else {
+      this.nickName = this.guestUser;
+    }
+  },
   computed: {
-    ...mapGetters(["loginUser"]),
+    ...mapGetters(["loginUser", "guestUser", "userType"]),
   },
   components: {
     FullCalendar, // make the <FullCalendar> tag available
   },
   data() {
     return {
-      guest: "",
+      nickName: null,
+      type: "",
       w_name: "",
       w_cnt: "",
       set_cnt: "",
@@ -88,6 +104,18 @@ export default {
         dateClick: this.handleDateClick,
         events: [],
       },
+      colors: [
+        "#ffb3b3",
+        "#ffffb3",
+        "#ecffb3",
+        "#b3ffec",
+        "#b3ecff",
+        "#b3c6ff",
+        "#ffb3ec",
+        "#ffb3c6",
+        "#cce2cb",
+        "#ffd9b3",
+      ],
     };
   },
   methods: {
@@ -116,7 +144,18 @@ export default {
 
 <style scoped>
 .container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  /* width: 1000px; */
+  /* height: auto; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.title {
   margin-top: 50px;
+  margin-bottom: 50px;
+  display: inline-flex;
+  /* display: inline-block; */
 }
 .fc-col-header-cell-cushion {
   color: black !important;
@@ -125,5 +164,8 @@ export default {
 .fc-day-sun a {
   color: red;
   text-decoration: none;
+}
+.fc-toolbar-title {
+  font-size: 10px !important;
 }
 </style>

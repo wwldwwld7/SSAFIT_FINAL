@@ -40,9 +40,9 @@ public class WorkoutController {
 	@GetMapping("/my/{nickName}")
 	public ResponseEntity<?> myWokrout(@PathVariable String nickName){
 		List<Workout> list = workoutService.myWorkout(nickName);
-		if(list==null || list.size()==0) {
-			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
-		}
+//		if(list==null || list.size()==0) {
+//			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+//		}
 		return new ResponseEntity<List<Workout>>(list, HttpStatus.OK);
 	}
 

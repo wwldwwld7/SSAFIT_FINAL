@@ -11,12 +11,17 @@ export default new Vuex.Store({
     user: {},
     loginUser: null, //로그인된 사람의 닉네임
     guestUser: null,
+    userType: "",
     availableId: "", //아이디 중복체크
     availablenickName: "", //닉네임 중복체크
     video: {},
+    // videos: [],
   },
 
   getters: {
+    userType(state) {
+      return state.userType;
+    },
     guestUser(state) {
       return state.guestUser;
     },
@@ -29,8 +34,15 @@ export default new Vuex.Store({
     availablenickName(state) {
       return state.availablenickName;
     },
+    // videos(state) {
+    //   // console.log(state.videos);
+    //   return state.videos;
+    // },
   },
   mutations: {
+    MAKEUSERTYPE(state, type) {
+      state.userType = type;
+    },
     GUEST(state, payload) {
       state.guestUser = payload;
     },
@@ -50,20 +62,32 @@ export default new Vuex.Store({
     STOREVIDEO(state, video) {
       state.video = video;
     },
+    // VIDEOS(state, videos) {
+    //   console.log(videos);
+    //   state.videos = videos;
+    // },
   },
   actions: {
+    makeUserType(context, type) {
+      context.commit("MAKEUSERTYPE", type);
+    },
     guest(context, guest) {
       context.commit("GUEST", guest);
     },
+    // getVideos(context) {
+    //   http.get("/video").then(({ data }) => {
+    //     context.commit("VIDEOS", data);
+    //   });
+    // },
     storeVideo(context, video) {
       context.commit("STOREVIDEO", video);
     },
     userLogIn({ commit }, user) {
       http
         .post("/user/login", user)
-        .then((res) => {
+        .then(async (res) => {
           // console.log(res);
-          commit("LOGIN", res.data);
+          await commit("LOGIN", res.data);
           window.location.href = "http://localhost:8080/video";
         })
         .catch(() => {
@@ -110,7 +134,7 @@ export default new Vuex.Store({
   modules: {},
   plugins: [
     createPersistedState({
-      paths: ["loginUser", "video", "guestUser"], //여기에 쓴 state만 새로고침해도 저장되어있음
+      paths: ["loginUser", "video", "guestUser", "userType"], //여기에 쓴 state만 새로고침해도 저장되어있음
     }),
   ],
 });

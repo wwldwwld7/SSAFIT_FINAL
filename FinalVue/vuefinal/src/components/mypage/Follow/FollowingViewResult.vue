@@ -1,13 +1,19 @@
 <template>
-  <div>
+  <div class="container">
     <div v-if="loginedUser === nickName">
-      <router-link :to="{ name: 'mypagemain', params: { nickName: nickName } }">
+      <router-link
+        class="nickname"
+        :to="{ name: 'mypagemain', params: { nickName: nickName } }"
+      >
         {{ nickName }}
       </router-link>
       {{ stateMsg }}
     </div>
     <div v-if="loginedUser !== nickName">
-      <router-link :to="{ name: 'guest', params: { nickName: nickName } }">
+      <router-link
+        class="msg"
+        :to="{ name: 'guest', params: { nickName: nickName } }"
+      >
         {{ nickName }}
       </router-link>
       {{ stateMsg }}
@@ -40,4 +46,21 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.container {
+  display: block;
+}
+.nickname,
+.msg {
+  text-decoration: none;
+}
+.nickname {
+  width: 100px;
+  text-align: left;
+  /* text-align: left; */
+  /* float: left; */
+}
+.msg {
+  width: 200px;
+}
+</style>
