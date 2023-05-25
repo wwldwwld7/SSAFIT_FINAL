@@ -43,7 +43,7 @@ export default {
   created() {
     http.get("/video").then(({ data }) => {
       this.saved = data;
-      console.log(this.saved);
+      // console.log(this.saved);
     });
     // this.$store.dispatch("getVideos");
     // .then((res) => {
