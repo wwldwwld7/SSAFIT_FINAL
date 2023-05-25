@@ -6,14 +6,14 @@ public class Comment {
 	private String youtubeId;
 	private String nickName;
 	private String content;
-	private Timestamp registDate;
+	private String registDate;
 	private int likeCnt;
 	private int commentId;
 	
 	public Comment() {
 	}
 
-	public Comment(String youtubeId, String nickName, String content, Timestamp registDate, int likeCnt, int commentId) {
+	public Comment(String youtubeId, String nickName, String content, String registDate, int likeCnt, int commentId) {
 		super();
 		this.youtubeId = youtubeId;
 		this.nickName = nickName;
@@ -47,11 +47,11 @@ public class Comment {
 		this.content = content;
 	}
 
-	public Timestamp getRegistDate() {
+	public String getRegistDate() {
 		return registDate;
 	}
 
-	public void setRegistDate(Timestamp registDate) {
+	public void setRegistDate(String registDate) {
 		this.registDate = registDate;
 	}
 

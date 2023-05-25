@@ -1,15 +1,22 @@
 <template>
-  <div>
-    <h4>수정</h4>
-    <label for="content">내용</label>
-    <input
-      type="content"
-      id="content"
-      name="content"
-      v-model="content"
-      ref="content"
-    />
-    <button @click="modify">수정</button>
+  <div class="main">
+    <div class="text-content">
+      <div>
+        <h4>댓글 내용</h4>
+      </div>
+      <div class="input">
+        <input
+          type="content"
+          id="content"
+          name="content"
+          v-model="content"
+          ref="content"
+        />
+      </div>
+      <div class="btn">
+        <button @click="modify">수정</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -59,4 +66,29 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.text-content {
+  margin-top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.text-content * {
+  margin-bottom: 10px;
+}
+.main {
+  height: 50px;
+}
+
+input {
+  width: 300px;
+  height: 100px;
+  outline: auto;
+  text-indent: 5%;
+}
+.btn {
+  display: flex;
+  float: right;
+}
+</style>
