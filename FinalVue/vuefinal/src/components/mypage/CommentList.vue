@@ -1,7 +1,10 @@
 <!-- 작성한 댓글 화면 -->
 <template>
-  <div>
-    <h1>{{ temp }}</h1>
+  <div class="container">
+    <div class="title">
+      <h3>{{ this.nickName }}</h3>
+      님의 댓글
+    </div>
     <comment-list-result :nickName="nickName"></comment-list-result>
   </div>
 </template>
@@ -21,7 +24,6 @@ export default {
   },
   data() {
     return {
-      temp: "< 내가 남긴 댓글 ~ >",
       nickName: "",
       comments: [],
     };
@@ -44,7 +46,29 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  text-align: center;
+  width: 1000px;
+  /* height: auto; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 h1 {
   text-align: center;
 }
+.title {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: inline-flex;
+  /* display: inline-block; */
+}
+/* .comment {
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-style: dashed;
+  border-width: 1px 0px;
+  border-color: gray;
+} */
 </style>

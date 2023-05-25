@@ -5,38 +5,42 @@
         <div class="row" v-if="loginedUser == comment.nickName">
           <div class="nickName">
             <router-link
+              style="color: rgb(42, 42, 133)"
               :to="{
                 name: 'mypagemain',
                 params: { nickName: comment.nickName },
               }"
               >{{ comment.nickName }}</router-link
             >
-            <div class="btn">
-              <button
-                class="modi"
-                v-if="loginedUser === comment.nickName"
-                @click="modify(comment)"
-              >
-                수정
-              </button>
-              <button
-                class="remove"
-                style="color: red; margin-left: 5px"
-                v-if="loginedUser === comment.nickName"
-                @click="remove(comment)"
-              >
-                삭제
-              </button>
-            </div>
-          </div>
-          <div class="content">
-            <div class="c-content">{{ comment.content }}<br /></div>
             <div class="registDate">
               {{ comment.registDate }}
             </div>
           </div>
+          <div class="content">
+            <div class="c-content">{{ comment.content }}<br /></div>
+            <!-- <div class="registDate">
+              {{ comment.registDate }}
+            </div> -->
+          </div>
+          <div class="btn">
+            <button
+              class="modi"
+              v-if="loginedUser === comment.nickName"
+              @click="modify(comment)"
+            >
+              수정
+            </button>
+            <button
+              class="remove"
+              style="color: red; margin-left: 5px"
+              v-if="loginedUser === comment.nickName"
+              @click="remove(comment)"
+            >
+              삭제
+            </button>
+          </div>
         </div>
-        <div class="row" v-if="loginedUser != comment.nickName">
+        <!-- <div class="row" v-if="loginedUser != comment.nickName">
           <div class="nickName">
             <router-link
               :to="{ name: 'guest', params: { nickName: comment.nickName } }"
@@ -49,7 +53,7 @@
               {{ comment.registDate }}
             </div>
           </div>
-        </div>
+        </div> -->
       </li>
     </ul>
   </div>
@@ -101,13 +105,16 @@ export default {
 <style scoped>
 .text-content3 {
   margin-top: 10px;
+  margin-bottom: 50px;
   width: 500px;
 }
 .row {
   margin: 10px 0px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* float: left; */
+  justify-content: space-between;
+  /* justify-content: center; */
   flex-direction: column;
   border-style: dashed;
   border-width: 1px 0px;
@@ -118,35 +125,48 @@ export default {
 }
 
 .nickName {
-  width: 500px;
+  width: 100%;
   height: 30px;
   display: flex;
+  /* float: left; */
   align-items: center;
-  justify-content: left;
+  justify-content: flex-start;
+  /* justify-content: left; */
 }
-.nickName * {
+/* .nickName * {
   color: black;
   text-decoration: none;
   font-weight: bolder;
-}
+  margin-right: auto;
+} */
 .nickName > a {
-  margin-left: 10px;
-  width: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: left;
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+  /* margin-right: auto; */
+  /* margin-left: 10px;
+  width: 480px; */
+  /* margin-right: auto; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: left; */
 }
 .content {
   height: 60px;
-  width: 500px;
+  width: 100%;
+  display: flex;
   align-items: center;
+  /* justify-content: flex-end; */
+  justify-content: center;
+  /* align-items: center; */
 }
 .btn {
   height: 30px;
-  width: 80px;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: flex-end;
+  /* justify-content: right; */
 }
 
 .c-content {
@@ -160,8 +180,13 @@ export default {
   font-size: smaller;
   height: 30px;
   color: gray;
+  /* margin-top: 10px; */
+  /* text-align: center; */
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: flex-start;
+  /* justify-content: left; */
+  /* margin-right: auto; */
+  width: 100;
 }
 </style>

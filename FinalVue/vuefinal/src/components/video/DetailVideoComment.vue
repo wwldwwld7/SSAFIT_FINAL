@@ -3,7 +3,7 @@
   <div class="text-content2">
     <div style="margin-top: 5px" class="search">
       <input
-        placeholder="댓글"
+        placeholder="댓글을 입력해 주세요"
         class="inputbox"
         type="text"
         v-model="content"
@@ -96,5 +96,8 @@ input {
   color: black;
   border-radius: 5px;
   font-weight: bolder;
+}
+::placeholder {
+  font-size: 13px;
 }
 </style>

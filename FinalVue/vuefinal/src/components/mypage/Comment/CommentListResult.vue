@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="container">
     <ul>
-      <li v-for="(comment, index) in comments" :key="index">
+      <div class="comment" v-for="(comment, index) in comments" :key="index">
         <comment-detail :comment="comment"></comment-detail>
-      </li>
+      </div>
     </ul>
   </div>
 </template>
@@ -31,4 +31,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.container {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  width: 500px;
+}
+.comment {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+</style>
