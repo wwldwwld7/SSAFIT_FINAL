@@ -15,10 +15,14 @@ export default new Vuex.Store({
     availableId: "", //아이디 중복체크
     availablenickName: "", //닉네임 중복체크
     video: {},
+    type: "",
     // videos: [],
   },
 
   getters: {
+    type(state) {
+      return state.type;
+    },
     userType(state) {
       return state.userType;
     },
@@ -40,6 +44,9 @@ export default new Vuex.Store({
     // },
   },
   mutations: {
+    TYPE(state, type) {
+      state.type = type;
+    },
     MAKEUSERTYPE(state, type) {
       state.userType = type;
     },
@@ -68,6 +75,9 @@ export default new Vuex.Store({
     // },
   },
   actions: {
+    type(context, type) {
+      context.commit("TYPE", type);
+    },
     makeUserType(context, type) {
       context.commit("MAKEUSERTYPE", type);
     },
@@ -134,7 +144,7 @@ export default new Vuex.Store({
   modules: {},
   plugins: [
     createPersistedState({
-      paths: ["loginUser", "video", "guestUser", "userType"], //여기에 쓴 state만 새로고침해도 저장되어있음
+      paths: ["loginUser", "video", "guestUser", "userType", "type"], //여기에 쓴 state만 새로고침해도 저장되어있음
     }),
   ],
 });

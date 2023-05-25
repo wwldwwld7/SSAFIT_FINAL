@@ -48,6 +48,7 @@ export default {
   computed: {
     ...mapState(["video"]),
     ...mapState(["loginUser"]),
+    ...mapState(["type"]),
   },
   data() {
     return {
@@ -60,12 +61,22 @@ export default {
     };
   },
   async created() {
-    this.youtubeId = this.video.id.videoId;
-    this.channelName = this.video.snippet.channelTitle;
-    this.title = he
-      .decode(this.video.snippet.title)
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, "");
-    this.thumbnails = this.video.snippet.thumbnails.default.url;
+    console.log(this.type);
+    console.log(this.video);
+    if (this.type === "like") {
+      this.youtubeId = this.video.youtubeId;
+      this.channelName = this.video.channelName;
+      this.title = this.video.title;
+      this.thumbnails = this.video.thumbnails;
+      this.videourl = this.video.videourl;
+    } else if (this.type === "search") {
+      this.youtubeId = this.video.id.videoId;
+      this.channelName = this.video.snippet.channelTitle;
+      this.title = he
+        .decode(this.video.snippet.title)
+        .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, "");
+      this.thumbnails = this.video.snippet.thumbnails.default.url;
+    }
     const video = {
       channelName: this.channelName,
       title: this.title,

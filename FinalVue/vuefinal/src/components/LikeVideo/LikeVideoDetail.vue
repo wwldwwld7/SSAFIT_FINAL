@@ -1,6 +1,6 @@
 <template>
   <div class="text-content">
-    <router-link :to="{ name: 'detail' }">
+    <div @click="move">
       <div>
         <div class="img">
           <img :src="`${video.thumbnails}`" />
@@ -12,7 +12,7 @@
           {{ video.channelName }}
         </div>
       </div>
-    </router-link>
+    </div>
     <hr />
   </div>
 </template>
@@ -28,12 +28,27 @@ export default {
   data() {
     return {
       video: {},
+      temp: {},
     };
   },
   created() {
     http
       .get(`/video/detail/${this.info.youtubeId}`)
       .then((res) => (this.video = res.data));
+  },
+  methods: {
+    move() {
+      http
+        .get(`/video/detail/${this.info.youtubeId}`)
+        .then((res) => {
+          console.log(res.data);
+          this.temp = res.data;
+          console.log(this.temp);
+        })
+        .then(() => this.$store.dispatch("storeVideo", this.temp))
+        .then(() => this.$store.dispatch("type", "like"))
+        .then(() => this.$router.push({ name: "detail" }));
+    },
   },
 };
 </script>
