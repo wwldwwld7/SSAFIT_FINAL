@@ -105,9 +105,6 @@ img {
   justify-content: center;
 }
 
-.title {
-}
-
 .content {
   width: 400px;
   font-weight: bolder;

@@ -56,7 +56,7 @@ export default {
 
 <style scoped>
 .box {
-  margin: 7px 0px;
+  margin: 20px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,7 +68,8 @@ export default {
   width: 250px;
 }
 .nickName > a {
-  color: black;
+  color: rgb(31, 16, 80);
   text-decoration: none;
+  font-weight: bold;
 }
 </style>

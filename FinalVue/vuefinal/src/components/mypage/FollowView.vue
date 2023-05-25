@@ -80,7 +80,7 @@ export default {
 }
 .list div {
   display: inline-block;
-  width: 300px;
+  width: 400px;
   height: auto;
   height: 500px;
   margin-right: 30px;

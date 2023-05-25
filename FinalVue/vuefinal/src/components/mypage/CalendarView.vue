@@ -4,9 +4,11 @@
       <h3>{{ this.nickName }}</h3>
       님의 calendar
     </div>
-    <FullCalendar :options="calendarOptions" />
-    <v-app>
-      <v-dialog v-model="isShow" v-if="isShow" max-width="500">
+    <div class="calendar">
+      <FullCalendar :options="calendarOptions" />
+    </div>
+    <v-app v-model="isShow" v-if="isShow" max-width="500">
+      <v-dialog>
         <v-card>
           <v-card-title>
             <h3 class="text-h5">운동 등록</h3>
@@ -157,5 +159,8 @@ export default {
 }
 .fc-toolbar-title {
   font-size: 10px !important;
+}
+.calendar {
+  height: 100%;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div>
+  <div class="container">
+    <div class="con2">
       <router-view />
     </div>
   </div>
@@ -18,4 +18,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.container {
+  /* max-height: 1000px; */
+  height: auto;
+}
+.con2 {
+  /* height: 200px; */
+}
+</style>

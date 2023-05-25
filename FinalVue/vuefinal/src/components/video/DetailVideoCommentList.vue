@@ -42,7 +42,7 @@
             <router-link
               style="color: rgb(42, 42, 133)"
               :to="{
-                name: 'mypagemain',
+                name: 'guest',
                 params: { nickName: comment.nickName },
               }"
               >{{ comment.nickName }}</router-link
@@ -150,6 +150,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  color: gray;
 }
 
 .c-content {
