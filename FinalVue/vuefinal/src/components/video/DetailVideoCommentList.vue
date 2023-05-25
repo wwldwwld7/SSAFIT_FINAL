@@ -40,20 +40,25 @@
             </button>
           </div>
         </div>
-        <!-- <div class="row" v-if="loginedUser != comment.nickName">
+        <div class="row" v-if="loginedUser != comment.nickName">
           <div class="nickName">
             <router-link
-              :to="{ name: 'guest', params: { nickName: comment.nickName } }"
+              style="color: rgb(42, 42, 133)"
+              :to="{
+                name: 'mypagemain',
+                params: { nickName: comment.nickName },
+              }"
               >{{ comment.nickName }}</router-link
             >
-          </div>
-          <div class="content">
-            <div class="c-content">{{ comment.content }}<br /></div>
             <div class="registDate">
               {{ comment.registDate }}
             </div>
           </div>
-        </div> -->
+          <div class="content">
+            <div class="c-content">{{ comment.content }}<br /></div>
+          </div>
+          <div class="btn"></div>
+        </div>
       </li>
     </ul>
   </div>
@@ -75,8 +80,8 @@ export default {
     };
   },
   created() {
-    this.loginedUser = this.loginUser.nickName;
     console.log(this.comments);
+    this.loginedUser = this.loginUser.nickName;
   },
   computed: {
     ...mapGetters(["loginUser"]),
@@ -110,6 +115,7 @@ export default {
 }
 .row {
   margin: 10px 0px;
+  padding: 1px 0px;
   display: flex;
   align-items: center;
   /* float: left; */
@@ -152,7 +158,7 @@ export default {
   /* justify-content: left; */
 }
 .content {
-  height: 60px;
+  height: 30px;
   width: 100%;
   display: flex;
   align-items: center;

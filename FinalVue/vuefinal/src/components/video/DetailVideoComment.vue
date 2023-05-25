@@ -52,6 +52,7 @@ export default {
       })
       .then((res) => {
         this.comments = res;
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);

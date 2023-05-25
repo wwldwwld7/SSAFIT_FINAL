@@ -21,8 +21,10 @@ export default {
   },
   methods: {
     storeVideo(value) {
+      console.log(value);
       this.$store
         .dispatch("storeVideo", value)
+        .then(() => this.$store.dispatch("type", "search"))
         .then(() => this.$router.push({ name: "detail" }));
     },
   },
