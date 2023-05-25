@@ -76,6 +76,12 @@ export default {
   display: flex;
   justify-content: space-around;
 }
+#footer {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  left: 0;
+}
 #footer #col1,
 #footer #col2,
 #footer #col3 {
@@ -105,6 +111,8 @@ export default {
   color: rgba(255, 255, 255, 0.8);
 }
 .view {
-  height: 900px;
+  min-height: 300px;
+  /* height: auto; */
+  /* height: 1100px; */
 }
 </style>
