@@ -12,8 +12,8 @@
           {{ comment.content }}
         </div>
         <div class="btn">
-          <button @click="modify(comment)">수정</button>
-          <button @click="remove(comment)">삭제</button>
+          <button class="modi" @click="modify(comment)">수정</button>
+          <button class="remo" @click="remove(comment)">삭제</button>
         </div>
       </div>
     </div>
@@ -43,7 +43,12 @@ export default {
       });
     },
     remove(value) {
-      http.delete(`/comment/${value.commentId}`).then(this.$router.go(0));
+      var delConfirm = confirm("댓글을 삭제하시겠습니까?");
+      if (delConfirm) {
+        http.delete(`/comment/${value.commentId}`).then(this.$router.go(0));
+      } else {
+        alert("삭제가 취소되었습니다.");
+      }
     },
   },
   created() {
@@ -77,15 +82,19 @@ img {
 }
 
 .title {
-  font-weight: bolder;
 }
 
 .content {
   width: 400px;
   font-weight: bolder;
+  text-decoration-line: underline;
 }
 .btn {
   width: 80px;
   color: gray;
+}
+.remo {
+  margin-left: 6px;
+  color: red;
 }
 </style>

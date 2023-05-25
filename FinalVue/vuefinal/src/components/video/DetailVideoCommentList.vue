@@ -2,29 +2,26 @@
   <div class="text-content3">
     <ul class="line" style="list-style-type: none">
       <li v-for="(comment, index) in comments" :key="index">
-        <div>
-          <div class="row" v-if="loginedUser == comment.nickName">
-            <div class="nickName">
-              <router-link
-                :to="{
-                  name: 'mypagemain',
-                  params: { nickName: comment.nickName },
-                }"
-                >{{ comment.nickName }}</router-link
-              >
-            </div>
-            <div class="content">
-              {{ comment.content }}
-            </div>
+        <div class="row" v-if="loginedUser == comment.nickName">
+          <div class="nickName">
+            <router-link
+              :to="{
+                name: 'mypagemain',
+                params: { nickName: comment.nickName },
+              }"
+              >{{ comment.nickName }}</router-link
+            >
             <div class="btn">
               <button
+                class="modi"
                 v-if="loginedUser === comment.nickName"
                 @click="modify(comment)"
               >
                 수정
               </button>
               <button
-                style="margin-left: 5px"
+                class="remove"
+                style="color: red; margin-left: 5px"
                 v-if="loginedUser === comment.nickName"
                 @click="remove(comment)"
               >
@@ -32,29 +29,24 @@
               </button>
             </div>
           </div>
-          <div class="row" v-if="loginedUser != comment.nickName">
-            <div class="nickName">
-              <router-link
-                :to="{ name: 'guest', params: { nickName: comment.nickName } }"
-                >{{ comment.nickName }}</router-link
-              >
+          <div class="content">
+            <div class="c-content">{{ comment.content }}<br /></div>
+            <div class="registDate">
+              {{ comment.registDate }}
             </div>
-            <div class="content">
-              {{ comment.content }}
-            </div>
-            <div class="btn">
-              <button
-                v-if="loginedUser === comment.nickName"
-                @click="modify(comment)"
-              >
-                수정
-              </button>
-              <button
-                v-if="loginedUser === comment.nickName"
-                @click="remove(comment)"
-              >
-                삭제
-              </button>
+          </div>
+        </div>
+        <div class="row" v-if="loginedUser != comment.nickName">
+          <div class="nickName">
+            <router-link
+              :to="{ name: 'guest', params: { nickName: comment.nickName } }"
+              >{{ comment.nickName }}</router-link
+            >
+          </div>
+          <div class="content">
+            <div class="c-content">{{ comment.content }}<br /></div>
+            <div class="registDate">
+              {{ comment.registDate }}
             </div>
           </div>
         </div>
@@ -80,6 +72,7 @@ export default {
   },
   created() {
     this.loginedUser = this.loginUser.nickName;
+    console.log(this.comments);
   },
   computed: {
     ...mapGetters(["loginUser"]),
@@ -108,35 +101,67 @@ export default {
 <style scoped>
 .text-content3 {
   margin-top: 10px;
+  width: 500px;
 }
 .row {
+  margin: 10px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  border-style: dashed;
+  border-width: 1px 0px;
+  border-color: gray;
 }
 .line > li {
-  height: 35px;
+  height: 90px;
 }
-.line * {
-  margin-top: 1px;
-}
+
 .nickName {
-  width: 50px;
+  width: 500px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
 .nickName * {
   color: black;
   text-decoration: none;
   font-weight: bolder;
 }
+.nickName > a {
+  margin-left: 10px;
+  width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
 .content {
-  width: 370px;
-  font-weight: bolder;
+  height: 60px;
+  width: 500px;
+  align-items: center;
 }
 .btn {
+  height: 30px;
   width: 80px;
-  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: right;
 }
-.btn * {
-  padding: auto;
+
+.c-content {
+  height: 30px;
+  line-height: 30px;
+  font-weight: bolder;
+  /* margin-top: 5px; */
+}
+
+.registDate {
+  font-size: smaller;
+  height: 30px;
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: right;
 }
 </style>

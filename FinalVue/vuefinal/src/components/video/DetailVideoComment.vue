@@ -2,14 +2,15 @@
 <template>
   <div class="text-content2">
     <div style="margin-top: 5px" class="search">
-      <input class="inputbox" type="text" v-model="content" />
+      <input
+        placeholder="댓글"
+        class="inputbox"
+        type="text"
+        v-model="content"
+      />
       <button class="btn" @click="regist(content)">등록</button>
     </div>
-    <div>
-      <detail-video-comment-list
-        :comments="comments"
-      ></detail-video-comment-list>
-    </div>
+    <detail-video-comment-list :comments="comments"></detail-video-comment-list>
   </div>
 </template>
 
