@@ -121,8 +121,10 @@ export default {
   methods: {
     handleDateClick: function (arg) {
       // console.log(arg);
-      this.isShow = true;
-      this.date = arg.dateStr;
+      if (this.loginUser.nickName == this.nickName) {
+        this.isShow = true;
+        this.date = arg.dateStr;
+      }
     },
     save() {
       const workout = {

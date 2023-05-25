@@ -1,7 +1,7 @@
 <!-- 완전 초기화면 -->
 
 <template>
-  <v-app>
+  <v-app class="title">
     <v-carousel height="600">
       <v-carousel-item
         v-for="(item, index) in items"
@@ -44,6 +44,9 @@ export default {
 :touch={ left: () => activeSlide--, right: () => activeSlide++ }
 
 <style scoped>
+.title {
+  margin-bottom: -50px;
+}
 .v-window__next {
   background: rgba(0, 0, 0, 0.15);
   height: 68px;
