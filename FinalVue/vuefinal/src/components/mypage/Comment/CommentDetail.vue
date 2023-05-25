@@ -1,19 +1,26 @@
 <template>
   <div class="text-content">
-    <div>
+    <div class="center">
       <div class="thumbnails">
         <img :src="`${thumbnails}`" />
       </div>
       <div class="title">
         {{ title }}
       </div>
-      <div class="context">
-        <div class="content">
-          {{ comment.content }}
-        </div>
-        <div class="btn">
-          <button class="modi" @click="modify(comment)">수정</button>
-          <button class="remo" @click="remove(comment)">삭제</button>
+      <div class="comment">
+        <div class="context">
+          <div class="content">
+            {{ comment.content }}
+          </div>
+          <div>
+            <div class="btn">
+              <button class="modi" @click="modify(comment)">수정</button>
+              <button class="remo" @click="remove(comment)">삭제</button>
+            </div>
+            <div class="date">
+              {{ comment.registDate }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -66,10 +73,28 @@ export default {
 <style scoped>
 .text-content {
   margin-top: 10px;
+  margin-bottom: 50px;
   text-align: center;
 }
 .text-content * {
   margin-bottom: 4px;
+}
+.comment {
+  width: 550px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-style: dashed;
+  border-width: 1px 0px;
+  border-color: gray;
+  margin: 0 auto;
+  margin-top: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* text-align: center; */
+}
+.center {
 }
 
 img {
@@ -87,14 +112,20 @@ img {
 .content {
   width: 400px;
   font-weight: bolder;
-  text-decoration-line: underline;
+  /* text-decoration-line: underline; */
 }
 .btn {
+  margin-top: 10px;
   width: 80px;
   color: gray;
 }
 .remo {
   margin-left: 6px;
   color: red;
+}
+.date {
+  color: gray;
+  font-size: 12px;
+  font-weight: 1px;
 }
 </style>

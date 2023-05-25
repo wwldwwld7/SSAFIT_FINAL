@@ -6,9 +6,9 @@
       님의 찜 영상
     </div>
     <ul>
-      <li v-for="(info, index) in infos" :key="index">
+      <div v-for="(info, index) in infos" :key="index">
         <like-video-detail :info="info"></like-video-detail>
-      </li>
+      </div>
     </ul>
   </div>
 </template>
