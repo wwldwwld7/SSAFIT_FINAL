@@ -59,7 +59,7 @@ public class UserController {
 				result.put("message", "FAIL");
 				status = HttpStatus.BAD_REQUEST;
 			}
-			else {
+			else if(tmp.getPassword().equals(user.getPassword())) {
 //				result.put("access-token", jwtUtil.createToken("id",tmp.getUserId()));
 				result.put("userId", tmp.getUserId());
 				result.put("message", "SUCCESS");
@@ -68,6 +68,10 @@ public class UserController {
 				result.put("stateMsg", tmp.getStateMsg());
 				status = HttpStatus.ACCEPTED;
 //				session.setAttribute("logInUser", tmp);
+			}
+			else {
+				result.put("message", "FAIL");
+				status = HttpStatus.BAD_REQUEST;
 			}
 		} catch (Exception e) {
 			result.put("message", "FAIL");

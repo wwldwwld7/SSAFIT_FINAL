@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.14" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.ssafy.ssafit.SsafitApplication" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/SsafitApplication.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="142" x="495" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.ssafy.ssafit.config.DBConfig" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/config/DBConfig.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="88" width="134" x="677" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.ssafy.ssafit.config.WebConfig" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/config/WebConfig.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="106" width="334" x="851" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.ssafy.ssafit.config.SwaggerConfig" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/config/SwaggerConfig.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="134" x="321" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.ssafy.ssafit.controller.WorkoutController" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/controller/WorkoutController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="272" x="1490" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.ssafy.ssafit.controller.LikeVideoController" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/controller/LikeVideoController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="160" width="323" x="1802" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.ssafy.ssafit.controller.CommentController" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/controller/CommentController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="303" x="3736" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.ssafy.ssafit.controller.FollowController" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/controller/FollowController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="311" x="4364" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.ssafy.ssafit.controller.UserController" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/controller/UserController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="178" width="391" x="4715" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.ssafy.ssafit.controller.VideoController" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/controller/VideoController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="299" x="2486" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="11" language="java" name="com.ssafy.ssafit.model.dao.CommentDao" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dao/CommentDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="305" x="3061" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="12" language="java" name="com.ssafy.ssafit.model.dao.LikeVideoDao" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dao/LikeVideoDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="277" x="2163" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="13" language="java" name="com.ssafy.ssafit.model.dao.WorkoutDao" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dao/WorkoutDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="260" x="944" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="14" language="java" name="com.ssafy.ssafit.model.dao.FollowDao" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dao/FollowDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="241" x="4062" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="15" language="java" name="com.ssafy.ssafit.model.dao.UserDao" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dao/UserDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="210" x="5200" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="16" language="java" name="com.ssafy.ssafit.model.dao.VideoDao" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dao/VideoDao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="217" x="2783" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="17" language="java" name="com.ssafy.ssafit.model.dto.Video" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dto/Video.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="394" width="233" x="2719" y="671"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.ssafy.ssafit.model.dto.Comment" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dto/Comment.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="448" width="274" x="3427" y="671"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.ssafy.ssafit.model.dto.LikeVideo" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dto/LikeVideo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="286" width="181" x="2089" y="671"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.ssafy.ssafit.model.dto.User" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dto/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="448" width="265" x="4672" y="671"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.ssafy.ssafit.model.dto.Workout" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dto/Workout.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="448" width="247" x="1265" y="671"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.ssafy.ssafit.model.dto.Food" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dto/Food.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="394" width="239" x="42" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.ssafy.ssafit.model.dto.Follow" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/dto/Follow.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="286" width="166" x="4187" y="671"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="24" language="java" name="com.ssafy.ssafit.model.service.UserService" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/UserService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="194" x="4966" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="25" language="java" name="com.ssafy.ssafit.model.service.VideoService" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/VideoService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="221" x="2522" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="26" language="java" name="com.ssafy.ssafit.model.service.WorkoutServiceImpl" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/WorkoutServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="142" width="225" x="1225" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.ssafy.ssafit.model.service.UserServieImpl" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/UserServieImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="194" x="5237" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="28" language="java" name="com.ssafy.ssafit.model.service.WorkoutService" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/WorkoutService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="124" width="225" x="1265" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="29" language="java" name="com.ssafy.ssafit.model.service.CommentService" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/CommentService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="309" x="3427" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="30" language="java" name="com.ssafy.ssafit.model.service.LikeVideoServiceImpl" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/LikeVideoServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="160" width="281" x="2165" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.ssafy.ssafit.model.service.FollowServiceImpl" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/FollowServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="178" width="245" x="4079" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="com.ssafy.ssafit.model.service.CommentServiceImpl" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/CommentServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="178" width="309" x="3387" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="com.ssafy.ssafit.model.service.VideoServiceImpl" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/VideoServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="178" width="221" x="2837" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="34" language="java" name="com.ssafy.ssafit.model.service.FollowService" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/FollowService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="160" width="245" x="4364" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="35" language="java" name="com.ssafy.ssafit.model.service.LikeVideoService" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/model/service/LikeVideoService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="142" width="281" x="1842" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="36" language="java" name="com.ssafy.ssafit.util.JwtUtil" project="ssafit" 
+    file="/ssafit/src/main/java/com/ssafy/ssafit/util/JwtUtil.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="142" width="214" x="4712" y="471"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="37">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="38" name="videoDao"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="41" name="followService"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="44" name="followDao"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="46">    
+    <bendpoint x="3396" y="471"/>    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="47">    
+    <bendpoint x="3030" y="471"/>    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="48">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <association id="49">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="50" name="likeVideoService"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="53" name="userService"/>      
+      <multiplicity id="54" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="55">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="56">    
+    <bendpoint x="3766" y="471"/>    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="57">    
+    <bendpoint x="4639" y="471"/>    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <association id="58">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="59" name="likeVideoDao"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="61">    
+    <bendpoint x="1234" y="471"/>    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="62">    
+    <bendpoint x="2491" y="471"/>    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="63">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="23"/>  
+  </dependency>  
+  <dependency id="64">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <realization id="65">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="24"/>  
+  </realization>  
+  <dependency id="66">    
+    <bendpoint x="4333" y="471"/>    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="23"/>  
+  </dependency>  
+  <dependency id="67">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="68">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="23"/>  
+  </dependency>  
+  <realization id="69">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="35"/>  
+  </realization>  
+  <realization id="70">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="34"/>  
+  </realization>  
+  <association id="71">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="72" name="commentService"/>      
+      <multiplicity id="73" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="74">    
+    <bendpoint x="4660" y="471"/>    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <association id="75">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="76" name="workoutDao"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="78">    
+    <bendpoint x="1520" y="471"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <realization id="79">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="29"/>  
+  </realization>  
+  <dependency id="80">    
+    <bendpoint x="5440" y="471"/>    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="81">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <association id="82">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="83" name="userDao"/>      
+      <multiplicity id="84" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="86" name="videoService"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="88">    
+    <bendpoint x="1811" y="471"/>    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="89">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="90">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="91">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <realization id="92">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <realization id="93">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="28"/>  
+  </realization>  
+  <dependency id="94">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="95">    
+    <bendpoint x="4031" y="471"/>    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="23"/>  
+  </dependency>  
+  <association id="96">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="97" name="jwtUtil"/>      
+      <multiplicity id="98" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="99">    
+    <bendpoint x="4681" y="471"/>    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="100">    
+    <bendpoint x="2470" y="471"/>    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <association id="101">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="102" name="workoutService"/>      
+      <multiplicity id="103" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="104">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="105" name="commentDao"/>      
+      <multiplicity id="106" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="107">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="108">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="109">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

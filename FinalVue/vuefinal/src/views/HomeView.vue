@@ -43,9 +43,9 @@ export default {
 
 <style scoped>
 .title {
-  margin-bottom: -50px;
+  /* margin-bottom: -50px; */
 }
-.v-window__next {
+/* .v-window__next {
   background: rgba(0, 0, 0, 0.15);
   height: 68px;
   width: 68px;
@@ -58,5 +58,5 @@ export default {
   width: 68px;
   top: calc(50% - 33px);
   margin-left: 13%;
-}
+} */
 </style>

@@ -51,7 +51,7 @@ export default {
           part: "snippet",
           q: value,
           type: "video",
-          maxResults: 2,
+          maxResults: 5,
         },
       })
         .then((res) => {
