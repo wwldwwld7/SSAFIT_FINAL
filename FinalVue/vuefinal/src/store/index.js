@@ -2,7 +2,6 @@ import Vue from "vue";
 import Vuex from "vuex";
 import http from "@/util/http-common.js";
 import createPersistedState from "vuex-persistedstate";
-// import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -16,7 +15,6 @@ export default new Vuex.Store({
     availablenickName: "", //닉네임 중복체크
     video: {},
     type: "",
-    // videos: [],
   },
 
   getters: {
@@ -38,10 +36,6 @@ export default new Vuex.Store({
     availablenickName(state) {
       return state.availablenickName;
     },
-    // videos(state) {
-    //   // console.log(state.videos);
-    //   return state.videos;
-    // },
   },
   mutations: {
     TYPE(state, type) {
@@ -54,7 +48,6 @@ export default new Vuex.Store({
       state.guestUser = payload;
     },
     LOGIN(state, payload) {
-      // state.loginUser = payload.nickName;
       state.loginUser = payload;
     },
     DUPLICATEIDCHECK(state, payload) {
@@ -69,10 +62,6 @@ export default new Vuex.Store({
     STOREVIDEO(state, video) {
       state.video = video;
     },
-    // VIDEOS(state, videos) {
-    //   console.log(videos);
-    //   state.videos = videos;
-    // },
   },
   actions: {
     type(context, type) {
@@ -84,11 +73,6 @@ export default new Vuex.Store({
     guest(context, guest) {
       context.commit("GUEST", guest);
     },
-    // getVideos(context) {
-    //   http.get("/video").then(({ data }) => {
-    //     context.commit("VIDEOS", data);
-    //   });
-    // },
     storeVideo(context, video) {
       context.commit("STOREVIDEO", video);
     },
@@ -96,7 +80,6 @@ export default new Vuex.Store({
       http
         .post("/user/login", user)
         .then(async (res) => {
-          // console.log(res);
           await commit("LOGIN", res.data);
           window.location.href = "http://localhost:8080/video";
         })

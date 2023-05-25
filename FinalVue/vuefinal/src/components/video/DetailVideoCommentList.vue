@@ -18,9 +18,6 @@
           </div>
           <div class="content">
             <div class="c-content">{{ comment.content }}<br /></div>
-            <!-- <div class="registDate">
-              {{ comment.registDate }}
-            </div> -->
           </div>
           <div class="btn">
             <button
@@ -118,9 +115,7 @@ export default {
   padding: 1px 0px;
   display: flex;
   align-items: center;
-  /* float: left; */
   justify-content: space-between;
-  /* justify-content: center; */
   flex-direction: column;
   border-style: dashed;
   border-width: 1px 0px;
@@ -134,37 +129,20 @@ export default {
   width: 100%;
   height: 30px;
   display: flex;
-  /* float: left; */
   align-items: center;
   justify-content: flex-start;
-  /* justify-content: left; */
 }
-/* .nickName * {
-  color: black;
-  text-decoration: none;
-  font-weight: bolder;
-  margin-right: auto;
-} */
 .nickName > a {
   color: black;
   text-decoration: none;
   font-weight: bolder;
-  /* margin-right: auto; */
-  /* margin-left: 10px;
-  width: 480px; */
-  /* margin-right: auto; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: left; */
 }
 .content {
   height: 30px;
   width: 100%;
   display: flex;
   align-items: center;
-  /* justify-content: flex-end; */
   justify-content: center;
-  /* align-items: center; */
 }
 .btn {
   height: 30px;
@@ -172,27 +150,21 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  /* justify-content: right; */
 }
 
 .c-content {
   height: 30px;
   line-height: 30px;
   font-weight: bolder;
-  /* margin-top: 5px; */
 }
 
 .registDate {
   font-size: smaller;
   height: 30px;
   color: gray;
-  /* margin-top: 10px; */
-  /* text-align: center; */
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* justify-content: left; */
-  /* margin-right: auto; */
   width: 100;
 }
 </style>

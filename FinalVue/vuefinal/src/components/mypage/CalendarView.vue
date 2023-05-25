@@ -1,4 +1,3 @@
-<!-- 식단관리 -->
 <template>
   <div class="container">
     <div class="title">
@@ -57,10 +56,8 @@ import { mapGetters } from "vuex";
 export default {
   name: "CalendarView",
   mounted() {
-    // this.$refs.calendar.checkChange();;
     http.get(`/workout/my/${this.nickName}`).then(({ data }) => {
       let list = [];
-      // data.forEach((d) => {
       for (let i = 0; i < data.length; i++) {
         let chall = {};
         chall.title = data[i].workoutName;
@@ -69,8 +66,6 @@ export default {
         chall.textColor = "rgb(42, 42, 133)";
         list.push(chall);
       }
-      // });
-      // console.log(list[0]);
       this.calendarOptions.events = list;
     });
   },
@@ -86,7 +81,7 @@ export default {
     ...mapGetters(["loginUser", "guestUser", "userType"]),
   },
   components: {
-    FullCalendar, // make the <FullCalendar> tag available
+    FullCalendar,
   },
   data() {
     return {
@@ -97,7 +92,6 @@ export default {
       set_cnt: "",
       date: "",
       isShow: false,
-      // workout: [],
       calendarOptions: {
         plugins: [dayGridPlugin, interactionPlugin],
         initialView: "dayGridMonth",
@@ -120,7 +114,6 @@ export default {
   },
   methods: {
     handleDateClick: function (arg) {
-      // console.log(arg);
       if (this.loginUser.nickName == this.nickName) {
         this.isShow = true;
         this.date = arg.dateStr;
@@ -136,7 +129,6 @@ export default {
       };
       console.log(workout);
       http.post("/workout", workout).then(() => {
-        // this.$router.push("/mypage/calendar");
         window.location.href = "http://localhost:8080/mypage/calendar";
       });
     },
@@ -149,20 +141,16 @@ export default {
   margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;
-  /* width: 1000px; */
-  /* height: auto; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .title {
   margin-top: 50px;
   margin-bottom: 50px;
   display: inline-flex;
-  /* display: inline-block; */
 }
 .fc-col-header-cell-cushion {
   color: black !important;
 }
-/* --fc-event-bg-color //등록요소들 배경 */
 .fc-day-sun a {
   color: red;
   text-decoration: none;

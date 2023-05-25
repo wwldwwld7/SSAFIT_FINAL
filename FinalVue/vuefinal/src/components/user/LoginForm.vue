@@ -1,8 +1,6 @@
-<!-- 로그인 화면 -->
 <template>
   <div class="container">
     <form action="" method="post">
-      <!-- id input -->
       <div class="input__block">
         <input
           type="text"
@@ -11,7 +9,6 @@
           class="input"
         />
       </div>
-      <!-- password input -->
       <div class="input__block">
         <input
           type="password"
@@ -20,31 +17,12 @@
           class="input"
         />
       </div>
-      <!-- log in button -->
       <button class="signin__btn" @click="goLogIn">LOGIN</button><br />
       <router-link class="separator" :to="{ name: 'signup' }"
         >회원가입</router-link
       >
     </form>
   </div>
-  <!-- 로그인폼 -->
-  <!-- <div class="container">
-    <h2>LOGIN</h2>
-    <form action="">
-      <div class="input-box">
-        <input type="text" v-model="userId" placeholder="아이디" /><br />
-      </div>
-      <div class="input-box">
-        <input
-          type="password"
-          v-model="password"
-          placeholder="비밀번호"
-        /><br />
-      </div>
-      <button @click="goLogIn">로그인</button><br />
-      <router-link :to="{ name: 'signup' }">회원가입</router-link>
-    </form>
-  </div> -->
 </template>
 
 <script>
@@ -62,9 +40,7 @@ export default {
         userId: this.userId,
         password: this.password,
       };
-      this.$store.dispatch("userLogIn", user).then(() => {
-        // this.$router.push({ name: "video" }); //이렇게 주소 이동하니까 새로고침 해야됨
-      });
+      this.$store.dispatch("userLogIn", user).then(() => {});
     },
   },
   computed: {},
@@ -72,11 +48,6 @@ export default {
 </script>
 
 <style scoped>
-/* body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background: white;
-} */
-
 .container {
   margin-top: 50px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -149,7 +120,6 @@ form .signin__btn:hover {
   position: relative;
   background: transparent;
   color: #7369ab;
-  /* font-size: 13px; */
   width: 90%;
   max-width: 680px;
   text-decoration: none;

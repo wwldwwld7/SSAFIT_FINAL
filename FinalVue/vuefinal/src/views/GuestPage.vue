@@ -71,7 +71,6 @@ export default {
         .then(() => {
           this.followflag = !this.followflag;
         });
-      // .then(() => this.$router.go(0));
     },
     follow() {
       const follow = {
@@ -93,14 +92,11 @@ export default {
     if (this.$route.params.nickName != null) {
       this.$store.dispatch("guest", this.$route.params.nickName);
     }
-    // this.nickName = this.$route.params.nickName;
     this.nickName = this.guestUser;
-    // console.log(this.loginUser.nickName);
     console.log(this.nickName);
     http
       .get(`/follow/${this.loginUser.nickName}/${this.nickName}`)
       .then((res) => {
-        // console.log(res);
         if (res.status == 204) {
           this.followflag = false;
         } else {
@@ -124,12 +120,10 @@ export default {
   text-align: center;
 }
 .container div {
-  /* float: left; */
   display: inline-block;
   align-content: space-between;
   margin-right: 50px;
   margin-left: 50px;
-  /* text-align: center; */
 }
 div img {
   display: flex;

@@ -1,9 +1,7 @@
-<!-- 영상 메인화면 ( 검색창 + 검색 결과에 따른 영상 리스트) -->
 <template>
   <div>
     <div class="text-content">
       <div class="search">
-        <!-- <v-icon class="search-icon">mdi-search-web</v-icon> -->
         <input
           class="inputbox"
           type="text"
@@ -23,7 +21,6 @@
 import SearchVideoResult from "./SearchVideoResult.vue";
 import axios from "axios";
 import http from "@/util/http-common.js";
-// import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -37,22 +34,10 @@ export default {
       saved: [],
     };
   },
-  computed: {
-    // ...mapGetters({ v: "videos" }),
-  },
   created() {
     http.get("/video").then(({ data }) => {
       this.saved = data;
-      // console.log(this.saved);
     });
-    // this.$store.dispatch("getVideos");
-    // .then((res) => {
-    //   console.log(res);
-    //   this.videos = res;
-    // });
-    // console.log(this.v);
-    // this.videos = this.v;
-    // console.log(this.videos);
   },
   methods: {
     search(value) {

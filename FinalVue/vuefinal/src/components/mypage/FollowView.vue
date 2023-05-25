@@ -1,4 +1,3 @@
-<!-- 팔로워 / 팔로잉 화면 -->
 <template>
   <div class="container">
     <div class="title">
@@ -46,7 +45,6 @@ export default {
   },
   computed: {
     ...mapGetters(["loginUser", "guestUser", "userType"]),
-    // ...mapGetters(["guestUser"]),
   },
   created() {
     this.type = this.userType;
@@ -69,15 +67,12 @@ export default {
 <style scoped>
 .container {
   text-align: center;
-  /* width: 1000px; */
-  /* height: auto; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .title {
   margin-top: 50px;
   margin-bottom: 50px;
   display: inline-flex;
-  /* display: inline-block; */
 }
 .list {
   display: flex;
@@ -85,19 +80,11 @@ export default {
 }
 .list div {
   display: inline-block;
-  /* float: left; */
-  /* align-content: center; */
-  /* text-align: center; */
   width: 300px;
   height: auto;
   height: 500px;
   margin-right: 30px;
   border-radius: 8px;
-  /* background-color: #f6f7fa; */
-}
-.list-following,
-.list-follower {
-  /* margin: auto; */
 }
 label {
   float: left;

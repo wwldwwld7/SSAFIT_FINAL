@@ -1,4 +1,3 @@
-<!-- 마이 페이지 화면 -->
 <template>
   <div>
     <div class="title">
@@ -85,18 +84,12 @@ export default {
 }
 .container {
   text-align: center;
-  /* display: flex; */
-  /* float: left; */
-  /* display: inline-block; */
-  /* padding: 0 50px; */
 }
 .container div {
-  /* float: left; */
   display: inline-block;
   align-content: space-between;
   margin-right: 50px;
   margin-left: 50px;
-  /* text-align: center; */
 }
 div img {
   display: flex;

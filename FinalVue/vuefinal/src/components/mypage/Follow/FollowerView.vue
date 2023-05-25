@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Follower -->
     <ul>
       <div
         v-for="(info, index) in followedList"

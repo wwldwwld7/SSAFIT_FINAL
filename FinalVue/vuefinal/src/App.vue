@@ -30,7 +30,6 @@
         </div>
       </div>
 
-      <!-- Copyright Section -->
       <div class="copyright">
         <p>Copyright © SAMSUNG All Rights Reserved</p>
 
@@ -68,10 +67,6 @@ export default {
   padding: 3em 0em;
   background: #e3f0f7;
   width: 100%;
-  /* display: flex; */
-  /* justify-content: space-around; */
-  /* align-content: center; */
-  /* text-align: center; */
   margin-top: 5em;
   color: rgb(42, 42, 133);
 }
@@ -86,7 +81,6 @@ export default {
 #footer #col3 {
   float: left;
   width: 320px;
-  /* padding: 0px 40px 0px 40px; */
 }
 
 #footer #icon {

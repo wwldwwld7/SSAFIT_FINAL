@@ -92,7 +92,6 @@ export default {
   margin: 0 auto;
   margin-top: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /* text-align: center; */
 }
 .center {
 }
@@ -112,7 +111,6 @@ img {
 .content {
   width: 400px;
   font-weight: bolder;
-  /* text-decoration-line: underline; */
 }
 .btn {
   margin-top: 10px;

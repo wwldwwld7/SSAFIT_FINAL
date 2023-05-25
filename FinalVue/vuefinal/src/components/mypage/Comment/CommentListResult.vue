@@ -37,9 +37,4 @@ export default {
   margin-bottom: 50px;
   width: 500px;
 }
-.comment {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-}
 </style>

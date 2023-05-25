@@ -1,5 +1,3 @@
-<!-- 완전 초기화면 -->
-
 <template>
   <v-app class="title">
     <v-carousel height="600">

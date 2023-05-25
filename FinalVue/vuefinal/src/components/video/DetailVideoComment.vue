@@ -1,4 +1,3 @@
-<!-- 댓글창 화면 -->
 <template>
   <div class="text-content2">
     <div style="margin-top: 5px" class="search">

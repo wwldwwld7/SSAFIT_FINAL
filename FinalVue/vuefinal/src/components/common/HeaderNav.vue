@@ -89,8 +89,6 @@ header {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 1270px;
   margin-top: 80px;
-  /* background: cadetblue; */
-  /* box-shadow: 0px 4px 4px -4px black; */
 }
 
 .center {

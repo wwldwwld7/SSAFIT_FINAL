@@ -1,4 +1,3 @@
-<!-- 작성한 댓글 화면 -->
 <template>
   <div class="container">
     <div class="title">
@@ -49,7 +48,6 @@ export default {
 .container {
   text-align: center;
   width: 1000px;
-  /* height: auto; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 h1 {
@@ -59,16 +57,5 @@ h1 {
   margin-top: 50px;
   margin-bottom: 50px;
   display: inline-flex;
-  /* display: inline-block; */
 }
-/* .comment {
-  margin: 10px 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border-style: dashed;
-  border-width: 1px 0px;
-  border-color: gray;
-} */
 </style>

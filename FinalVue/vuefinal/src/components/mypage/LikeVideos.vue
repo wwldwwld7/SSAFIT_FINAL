@@ -1,4 +1,3 @@
-<!-- 찜한 영상 화면 -->
 <template>
   <div class="container">
     <div class="title">
@@ -33,13 +32,10 @@ export default {
   },
   computed: {
     ...mapGetters(["loginUser", "guestUser", "userType"]),
-    // ...mapGetters(["guestUser"]),
   },
   created() {
     console.log(this.userType);
     this.type = this.userType;
-    // console.log(this.type);
-    // console.log(this.guestUser);
     if (this.type == "user") {
       this.nickName = this.loginUser.nickName;
     } else {
@@ -56,7 +52,6 @@ export default {
 .container {
   text-align: center;
   width: 1000px;
-  /* height: auto; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 h1 {
@@ -66,6 +61,5 @@ h1 {
   margin-top: 50px;
   margin-bottom: 50px;
   display: inline-flex;
-  /* display: inline-block; */
 }
 </style>

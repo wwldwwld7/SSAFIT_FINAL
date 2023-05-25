@@ -86,18 +86,12 @@ export default {
       nickName: "",
       stateMsg: "",
       passwordCheck: "",
-      // idCheck: false,
-      // passwordCheck: false,
-      // nickNameCheck: fasle,
       passwordCheckFlag: false,
     };
   },
   methods: {
     duplicateIdCheck() {
       this.$store.dispatch("duplicateIdCheck", this.userId);
-      // console.log(this.availableId);
-      // if (this.availableId) {
-      //   this.idCheck = true;
     },
     duplicateNickNameCheck() {
       this.$store.dispatch("duplicateNickNameCheck", this.nickName);
@@ -228,7 +222,6 @@ label {
 .dbtn {
   background-color: #c0c7db;
   color: #7369ab;
-  /* margin: 0; */
   padding: 0px 15px;
   font-size: 14px;
   border-radius: 10px;

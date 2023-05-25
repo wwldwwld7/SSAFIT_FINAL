@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Following -->
     <ul>
       <div v-for="(info, index) in followList" :key="index">
         <following-view-result :info="info"></following-view-result>

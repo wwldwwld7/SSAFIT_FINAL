@@ -1,4 +1,3 @@
-<!-- 영상 상세 정보 화면 -->
 <template>
   <div>
     <div class="videobox">
