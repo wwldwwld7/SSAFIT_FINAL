@@ -8,7 +8,7 @@
       <FullCalendar :options="calendarOptions" />
     </div>
     <v-app v-model="isShow" v-if="isShow" max-width="500">
-      <v-dialog>
+      <v-dialog v-model="isShow" v-if="isShow" max-width="500">
         <v-card>
           <v-card-title>
             <h3 class="text-h5">운동 등록</h3>
